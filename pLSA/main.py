@@ -1,9 +1,8 @@
-import os
-import glob
 import sys
-from operator import itemgetter # for sort
+from operator import itemgetter  # for sort
 
 import plsa
+import numpy as np
 
 
 def print_topic_word_distribution(corpus, number_of_topics, topk, filepath):
@@ -53,23 +52,25 @@ def print_document_topic_distribution(corpus, number_of_topics, topk, filepath):
 
     f.close()
 
+
 def print_document_topic_distribution_csv(corpus, number_of_topics, topk, filepath):
     assert(topk <= number_of_topics)
-    np.savetxt(filepath,corpus.document_topic_prob,delimiter=",")
+    np.savetxt(filepath, corpus.document_topic_prob, delimiter=",")
+
 
 def print_documents(corpus, filepath):
     f = open(filepath, "w")
-    D = len(corpus.documents) # number of documents
     for d in corpus.documents:
       f.write(d + "\n")
     f.close()
 
+
 def main(argv):
-    A = Corpus('gdrive/MyDrive/ThesisDataset/223_motifs_without_x.txt')
+    A = plsa.Corpus('./223_motifs_without_x.txt')
 
-    document_file = ('gdrive/MyDrive/ThesisDataset/training_data_0_952_1.txt')
+    document_file = './training_data_0_952_1.txt'
 
-    documents = Document(document_file)  # instantiate document
+    documents = plsa.Document(document_file)  # instantiate document
     documents.split()  # tokenize
 
     for i in documents.lines:
@@ -80,24 +81,29 @@ def main(argv):
     print("Number of documents:" + str(len(A.documents)))
     # print(len(documents.lines))
 
+    number_of_topics = int(argv[1])
+    max_iterations = int(argv[2])
 
-    number_of_topics = 50
-    max_iterations = 10
     A.plsa(number_of_topics, max_iterations)
     tpks = number_of_topics  # Number of top words in a topic
 
-# print corpus.document_topic_prob
-# print corpus.topic_word_prob
-# cPickle.dump(corpus, open('./models/corpus.pickle', 'w'))
+    # print corpus.document_topic_prob
+    # print corpus.topic_word_prob
+    # cPickle.dump(corpus, open('./models/corpus.pickle', 'w'))
 
-    print_documents(A, 'gdrive/MyDrive/ThesisDataset/plsa2_withoutX/plsa2_result50_50topwords/documents.txt')
-##print_topic_word_distribution(A, number_of_topics, k, 'gdrive/MyDrive/ThesisDataset/plsa2_result50/topic_word.txt') with k <= number_of_topics => k - most probable topics
+    print_documents(A, './documents.txt')
+    # print_topic_word_distribution(A, number_of_topics,
+    # k, 'gdrive/MyDrive/ThesisDataset/plsa2_result50/topic_word.txt')
+    # with k <= number_of_topics => k - most probable topics
     print_topic_word_distribution(A, number_of_topics, tpks,
-                              'gdrive/MyDrive/ThesisDataset/plsa2_withoutX/plsa2_result50_50topwords/topic_word.txt')
-    print_document_topic_distribution(A, number_of_topics, tpks,
-                                  'gdrive/MyDrive/ThesisDataset/plsa2_withoutX/plsa2_result50_50topwords/document-topic.txt')
-    print_document_topic_distribution_csv(A, number_of_topics, tpks,
-                                      'gdrive/MyDrive/ThesisDataset/plsa2_withoutX/plsa2_result50_50topwords/document-topic.csv')
+                                  './plsa2_withoutX/plsa2_result{}_{}topwords/topic_word.txt'.format(number_of_topics))
+
+    # print_document_topic_distribution(A, number_of_topics, tpks,
+    # 'plsa2_withoutX/plsa2_result{}_{}topwords/document-topic.txt'.format(number_of_topics))
+
+    print_document_topic_distribution_csv(A, number_of_topics,
+                           tpks, './plsa2_withoutX/plsa2_result{}_{}topwords/document-topic.csv'.format(number_of_topics))
+
 
 if __name__ == "__main__":
     main(sys.argv)

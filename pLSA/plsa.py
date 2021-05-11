@@ -2,21 +2,20 @@ import re
 import numpy as np
 from utils import normalize
 
+
 class Document(object):
-    '''
-    Splits a text file into an ordered list of words.
-    '''
+
+    # Splits a text file into an ordered list of words.
 
     def __init__(self, filepath):
         self.filepath = filepath
         self.lines = []
 
     def split(self):
-        '''
-        Split file into an ordered list of words. Scrub out punctuation;
-        lowercase everything; preserve contractions; disallow strings that
-        include non-letters.
-        '''
+        # Split file into an ordered list of words. Scrub out punctuation;
+        # lowercase everything; preserve contractions; disallow strings that
+        # include non-letters.
+
         self.file = open(self.filepath)
         try:
             self.lines = [line.strip() for line in self.file]
