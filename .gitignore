@@ -1,4 +1,4 @@
 *.png
-*.esp
+*.eps
 __pycache__
 .vscode/settings.json
