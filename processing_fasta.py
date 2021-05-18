@@ -15,10 +15,12 @@ import random
 
 #%%
 records = {}
+
 for organism in organisms:
     record = list(SeqIO.parse("fasta_original/{}.fasta".format(organism), "fasta"))
     record = [sequence for sequence in record if str(sequence.seq).find("X") == -1]
     if (organism == "zai"):
+        random.seed(10)
         record = random.sample(record, 270)
     records.update({organism: record})
 
@@ -27,5 +29,8 @@ all_records = []
 for organism in organisms:
     all_records = all_records + list(records[organism])
     SeqIO.write(records[organism], "fasta/{}.fasta".format(organism), "fasta")
-print(len(all_records))
+
+SeqIO.write(all_records, "fasta/all.fasta", "fasta")
 SeqIO.write(all_records, "motifs/all.fasta", "fasta")
+
+# %%
