@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for (( c=3; c<=20; c++ ))
+do
+   meme -protein -objfun classic -oc "${c}_${c}" -mod oops -minw $c -maxw $c -nmotifs 20 fasta/all.fasta -p '16 --use-hwthread-cpus'
+done
