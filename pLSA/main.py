@@ -66,9 +66,9 @@ def print_documents(corpus, filepath):
 
 
 def main(argv):
-    A = plsa.Corpus('./223_motifs_without_x.txt')
+    A = plsa.Corpus('./171_motifs_without_x.txt')
 
-    document_file = './training_data_0_952_1.txt'
+    document_file = './training_data_0_951_1.txt'
 
     documents = plsa.Document(document_file)  # instantiate document
     documents.split()  # tokenize
@@ -82,10 +82,11 @@ def main(argv):
     # print(len(documents.lines))
 
     number_of_topics = int(argv[1])
-    max_iterations = int(argv[2])
+    tpks = int(argv[2])
+    max_iterations = int(argv[3])
 
     A.plsa(number_of_topics, max_iterations)
-    tpks = number_of_topics  # Number of top words in a topic
+    
 
     # print corpus.document_topic_prob
     # print corpus.topic_word_prob
@@ -96,13 +97,13 @@ def main(argv):
     # k, 'gdrive/MyDrive/ThesisDataset/plsa2_result50/topic_word.txt')
     # with k <= number_of_topics => k - most probable topics
     print_topic_word_distribution(A, number_of_topics, tpks,
-                                  './plsa2_withoutX/plsa2_result{}_{}topwords/topic_word.txt'.format(number_of_topics))
+                                  './TopicMotifs/plsa2_{}topics_{}topwords.txt'.format(number_of_topics, tpks))
 
     # print_document_topic_distribution(A, number_of_topics, tpks,
     # 'plsa2_withoutX/plsa2_result{}_{}topwords/document-topic.txt'.format(number_of_topics))
 
     print_document_topic_distribution_csv(A, number_of_topics,
-                           tpks, './plsa2_withoutX/plsa2_result{}_{}topwords/document-topic.csv'.format(number_of_topics))
+                           tpks, './csv/plsa2_{}topics_{}topwords.csv'.format(number_of_topics, tpks))
 
 
 if __name__ == "__main__":
