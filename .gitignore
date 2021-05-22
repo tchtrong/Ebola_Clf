@@ -1,5 +1,5 @@
 *.png
 *.eps
 __pycache__
-.vscode/settings.json
+.vscode
 test.py
