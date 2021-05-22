@@ -21,7 +21,7 @@ y_train, y_test = train_test_split(label, test_size=0.2, random_state=42)
 #SVM only
 
 #Read dataset
-dataset = pd.read_csv("../csv/freq_matrix.csv", index_col=(0))
+dataset = pd.read_csv("../csv/freq_matrix.csv")
 
 #%%
 #Split dataset into training and testing set
@@ -48,7 +48,7 @@ clf.fit(X_6tp_train, list(y_train["species"].values))
 print(clf.score(X_6tp_test, y_test))
 
 #%%
-for i in range(10, 210, 10):
+for i in range(10, 110, 10):
     dataset = pd.read_csv("csv/lda_{}tp.csv".format(i), index_col=(0))
     X_train, X_test = train_test_split(dataset, test_size=0.2, random_state=42)
     clf = svm.SVC()
