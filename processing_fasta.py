@@ -32,6 +32,7 @@ for organism in organisms:
     # Remove description of sequence (MEME will warn if the description is too long)
     for sequence in record:
         sequence.description = ""
+        # sequence.name = idx
 
     # Remove duplicate sequences
     cleaned = remove_dup_seqs(record)

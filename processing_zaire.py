@@ -15,6 +15,7 @@ zaire_cleaned = list(SeqIO.parse("fasta_cleaned/zai.fasta", "fasta"))
 for seed in seeds:
     random.seed(seed)
     SeqIO.write(random.sample(zaire, 270), "fasta/zai_{}.fasta".format(seed),"fasta")
+    random.seed(seed)
     SeqIO.write(random.sample(zaire_cleaned, 75), "fasta_cleaned/zai_{}.fasta".format(seed),"fasta")
 
 # %%

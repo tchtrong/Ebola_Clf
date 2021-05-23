@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Begin document body -->
+<fimo version="5.3.3" release="Sun Feb 7 15:39:52 2021 -0800">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
+>
+<command-line>fimo motifs/12/20_20/meme.xml fasta/all_12.fasta</command-line>
+<settings>
+<setting name="output directory">fimo_out</setting>
+<setting name="MEME file name">motifs/12/20_20/meme.xml</setting>
+<setting name="sequence file name">fasta/all_12.fasta</setting>
+<setting name="background file name">--nrdb--</setting>
+<setting name="allow clobber">true</setting>
+<setting name="compute q-values">true</setting>
+<setting name="parse genomic coord.">false</setting>
+<setting name="text only">false</setting>
+<setting name="scan both strands">false</setting>
+<setting name="output threshold">0.0001</setting>
+<setting name="threshold type">p-value</setting>
+<setting name="max stored scores">100000</setting>
+<setting name="pseudocount">0.1</setting>
+<setting name="verbosity">2</setting>
+</settings>
+<sequence-data num-sequences="951" num-residues="563903" />
+<alphabet name="Protein" like="protein">
+<letter id="A" symbol="A" name="Alanine" colour="0000CC"/>
+<letter id="C" symbol="C" name="Cysteine" colour="0000CC"/>
+<letter id="D" symbol="D" name="Aspartic acid" colour="FF00FF"/>
+<letter id="E" symbol="E" name="Glutamic acid" colour="FF00FF"/>
+<letter id="F" symbol="F" name="Phenylalanine" colour="0000CC"/>
+<letter id="G" symbol="G" name="Glycine" colour="FFB300"/>
+<letter id="H" symbol="H" name="Histidine" colour="FFCCCC"/>
+<letter id="I" symbol="I" name="Isoleucine" colour="0000CC"/>
+<letter id="K" symbol="K" name="Lysine" colour="CC0000"/>
+<letter id="L" symbol="L" name="Leucine" colour="0000CC"/>
+<letter id="M" symbol="M" name="Methionine" colour="0000CC"/>
+<letter id="N" symbol="N" name="Asparagine" colour="008000"/>
+<letter id="P" symbol="P" name="Proline" colour="FFFF00"/>
+<letter id="Q" symbol="Q" name="Glutamine" colour="008000"/>
+<letter id="R" symbol="R" name="Arginine" colour="CC0000"/>
+<letter id="S" symbol="S" name="Serine" colour="008000"/>
+<letter id="T" symbol="T" name="Threonine" colour="008000"/>
+<letter id="V" symbol="V" name="Valine" colour="0000CC"/>
+<letter id="W" symbol="W" name="Tryptophan" colour="0000CC"/>
+<letter id="Y" symbol="Y" name="Tyrosine" colour="33E6CC"/>
+<letter id="X" symbol="X" aliases="*." equals="ACDEFGHIKLMNPQRSTVWY" name="Any amino acid"/>
+<letter id="B" symbol="B" equals="DN" name="Asparagine or Aspartic acid"/>
+<letter id="Z" symbol="Z" equals="EQ" name="Glutamine or Glutamic acid"/>
+<letter id="J" symbol="J" equals="IL" name="Leucine or Isoleucine"/>
+</alphabet>
+<motif name="PSATKRWGFRAGVPPKVVGY" alt="MEME-1" width="20" best-possible-match="PSATKRWGFRAGVPPKVVGY"/>
+<motif name="STVIYRGTDFAEGVVAFLJL" alt="MEME-2" width="20" best-possible-match="STVIYRGTDFAEGVVAFLLL"/>
+<motif name="GEWAENCYNLEIKKPDGSEC" alt="MEME-3" width="20" best-possible-match="GEWAENCYNLEIKKPDGSEC"/>
+<motif name="KLSSTEQLKSVGLNLEGNGV" alt="MEME-4" width="20" best-possible-match="KLSSTEQLKSVGLNLEGNGV"/>
+<motif name="GVRGFPRCRYVHKVSGTGPC" alt="MEME-5" width="20" best-possible-match="GVRGFPRCRYVHKVSGTGPC"/>
+<motif name="YVQLTRRFTPQFLVQLNETI" alt="MEME-6" width="20" best-possible-match="YVQLTRRFTPQFLVQLNETI"/>
+<motif name="LIWTTNPLIDTDVGEWAFWE" alt="MEME-7" width="20" best-possible-match="LIWTTNPLIDTDVGEWAFWE"/>
+<motif name="WVIILFQRAFSMPLGVVHNS" alt="MEME-8" width="20" best-possible-match="WVIILFQRAFSMPLGVVHNS"/>
+<motif name="SYYHTATLHYTSDBFGTNAT" alt="MEME-9" width="20" best-possible-match="SYYHTATLHYTSDNFGTNAT"/>
+<motif name="NWIPYFPPRALRIYKEGLMH" alt="MEME-10" width="20" best-possible-match="NWIPYFPPRALRIYKEGLMH"/>
+<motif name="MSACGJLQLPRERFRKSSFF" alt="MEME-11" width="20" best-possible-match="MSACGLLQLPRERFRKSSFF"/>
+<motif name="TPHILGETCCIFKYDDGKNY" alt="MEME-12" width="20" best-possible-match="TPHILGETCCIFKYDDGKNY"/>
+<motif name="PHAKKDFYQSPPFREPVNGT" alt="MEME-13" width="20" best-possible-match="PHAKKDFYQSPPFREPVNGT"/>
+<motif name="ADGLAKAFPSNMMVVTEREQ" alt="MEME-14" width="20" best-possible-match="ADGLAKAFPSNMMVVTEREQ"/>
+<motif name="YRNLGDPVTEGLFQLQQYLE" alt="MEME-15" width="20" best-possible-match="YRNLGDPVTEGLFQLQQYLE"/>
+<motif name="LRTKSPLNRKAIDFLLNRWG" alt="MEME-16" width="20" best-possible-match="LRTKSPLNRKAIDFLLNRWG"/>
+<motif name="DFIDKALPQQVDRDNYWLGW" alt="MEME-17" width="20" best-possible-match="DFIDKALPQQGDRDNYWLGW"/>
+<motif name="LDRLRKETLQRLQLWFSALD" alt="MEME-18" width="20" best-possible-match="LDRLRKETLQRLQLWFSALD"/>
+<motif name="CYGVSGVFNWMHGLIPQCYM" alt="MEME-19" width="20" best-possible-match="CYGVSGVFNWMHGLIPQCYM"/>
+<motif name="JQKHWGHPRLHSEAAIAKVK" alt="MEME-20" width="20" best-possible-match="LQKHWGHPRLHSEAAIAKVK"/>
+<motif name="KCNPNLHYWTAZDEGAAVGL" alt="MEME-21" width="20" best-possible-match="KCNPNLHYWTAQDEGAAVGL"/>
+<motif name="RSFTTHFLTYPKIGLLYSFG" alt="MEME-22" width="20" best-possible-match="RSFTTHFLTYPKIGLLYSFG"/>
+<motif name="YIGSRTEDKIGQPAIKPKCP" alt="MEME-23" width="20" best-possible-match="YTGSRTEDKIGQPAIKPKCP"/>
+<motif name="HRYNDQYSPHSFMANRMSNT" alt="MEME-24" width="20" best-possible-match="HRYNDQYSPHSFMANRMSNT"/>
+<motif name="EKYNLAFRYEFTAPFIEYCN" alt="MEME-25" width="20" best-possible-match="EKYNLAFRYEFTAPFIEYCN"/>
+<motif name="CSLEZFYVPWLKEYEQCPEC" alt="MEME-26" width="20" best-possible-match="CSLEQFYVPWLKEYEQCPEC"/>
+<motif name="DCRETGIVSSMHYKKBEVSF" alt="MEME-27" width="20" best-possible-match="DCRETGIVSSMHQKLNEVSF"/>
+<motif name="VEIKTGFKLRSAVMGDNQCI" alt="MEME-28" width="20" best-possible-match="VEIKTGFKLRSAVMGDNQCI"/>
+<motif name="PMIKDLLWEFYHLDHPPLFS" alt="MEME-29" width="20" best-possible-match="PMIKDLLWEFYHLDHPPLFS"/>
+<motif name="EWYLCLSNFLSTQRRIVRQT" alt="MEME-30" width="20" best-possible-match="EWYLCLSNFLSTQRRIVRQT"/>
+<motif name="NRTHLHLTECCTTEVPAQYL" alt="MEME-31" width="20" best-possible-match="NRTHLHLTECCTTEVPAQYL"/>
+<motif name="PLSDAIFDDLQGTLASIGTA" alt="MEME-32" width="20" best-possible-match="PLSDAIFDDLQGTLASIGTA"/>
+<motif name="QKRNFSFSLKEKELNVGRTF" alt="MEME-33" width="20" best-possible-match="QKRNFSFSLKEKELNVGRTF"/>
+<motif name="VYNCKSTASNFFHASLAYWR" alt="MEME-34" width="20" best-possible-match="VYNCKSTASNFFHASLAYWR"/>
+<motif name="RGHLGGIEGLQQKLWTSISC" alt="MEME-35" width="20" best-possible-match="RGHLGGIEGLQQKLWTSISC"/>
+<motif name="ILQYHHLGFNKGFDLGQLKL" alt="MEME-36" width="20" best-possible-match="ILQYHHLGFNKGFDLGQLKL"/>
+<motif name="KIQLCSKYTERKGRFLTQMH" alt="MEME-37" width="20" best-possible-match="KIQLCSKYTERKGRFLTQMH"/>
+<motif name="QHTQYPDARLSSPIVLDQCD" alt="MEME-38" width="20" best-possible-match="QHTQYPDARLSSPIVLDQCD"/>
+<motif name="VMSRFAADIFSRTPSGKRLQ" alt="MEME-39" width="20" best-possible-match="VMSRFAADIFSRTPSGKRLQ"/>
+<motif name="GEFSGGGQSARDSNIIFQNV" alt="MEME-40" width="20" best-possible-match="GEFSGGGQSARDSNIIFQNV"/>
+<motif name="YFGKKQYLNGVQLPQSLKTA" alt="MEME-41" width="20" best-possible-match="YFGKKQYLNGVQLPQSLKTA"/>
+<motif name="CTVDLAQILREYSWAHILEG" alt="MEME-42" width="20" best-possible-match="CTVDLAQILREYSWAHILEG"/>
+<motif name="VSTAEVLIMCKDJITCRFNT" alt="MEME-43" width="20" best-possible-match="VSTAEVLIMCKDLITCRFNT"/>
+<motif name="QTYHFIKTAKGRITKLVNDY" alt="MEME-44" width="20" best-possible-match="QTYHFIKTAKGRITKLVNDY"/>
+<motif name="VPGSQDLTSFLRQIVRRGIT" alt="MEME-45" width="20" best-possible-match="VPGSQDLTSFLRQIVRRGIT"/>
+<motif name="ISETRHILPCRIAAAFHTYF" alt="MEME-46" width="20" best-possible-match="ISETRHILPCRIAAAFHTYF"/>
+<motif name="FDSQGTWYSVISDRNLTPGL" alt="MEME-47" width="20" best-possible-match="FDSQGTWYSVISDRNLTPGL"/>
+<motif name="YIRLGFPSLEKVLYHRYNLV" alt="MEME-48" width="20" best-possible-match="YIRLGFPSLEKVLYHRYNLV"/>
+<motif name="NIIEDDLIRLPHLSGWELAK" alt="MEME-49" width="20" best-possible-match="NIIEDDLIRLPHLSGWELAK"/>
+<motif name="ALAVPQVLGGLSFLNPEKCF" alt="MEME-50" width="20" best-possible-match="ALAVPQVLGGLSFLNPEKCF"/>
+<motif name="YSLNPQLRNCKLPKHIYRLK" alt="MEME-51" width="20" best-possible-match="YSLNPQLRNCKLPKHIYRLK"/>
+<motif name="HVSDYYNPPHNVTLENREYP" alt="MEME-52" width="20" best-possible-match="HVSDYYNPPHNVTLENREYP"/>
+<motif name="YRDNELIYDSNPLRGGLNCN" alt="MEME-53" width="20" best-possible-match="YRDNELIYDSNPLRGGLNCN"/>
+<motif name="SILGSEGYKIIKYLEPLCLA" alt="MEME-54" width="20" best-possible-match="SILGSEGYKIIKYLEPLCLA"/>
+<motif name="HFSIYIGGTAGDRGLSDAAR" alt="MEME-55" width="20" best-possible-match="HFSIYIGGTAGDRGLSDAAR"/>
+<motif name="VCNRFYHTRBCECZERFLVQ" alt="MEME-56" width="20" best-possible-match="VCNRFYHTRNCECEERFLVQ"/>
+<motif name="ITMDAETTENJNRSKLYEAV" alt="MEME-57" width="20" best-possible-match="ITMDAETTENLNRSKLYEAV"/>
+<motif name="WIISRDTTIPLWVVYPLEGQ" alt="MEME-58" width="20" best-possible-match="WIISRDTTIPLWVVYPLEGQ"/>
+<motif name="LATEHSIESEVVSGFTTPRM" alt="MEME-59" width="20" best-possible-match="LATEHSIESEVVSGFTTPRM"/>
+<motif name="VVSAWPNASRJSWTIGDGIP" alt="MEME-60" width="20" best-possible-match="VVSAWPNASRISWTIGDGIP"/>
+<motif name="ILGYGDYIFWKIPJSLLPVN" alt="MEME-61" width="20" best-possible-match="ILGYGDYIFWKIPLSLLPVN"/>
+<motif name="QSIISDSSNSSTDPISSGET" alt="MEME-62" width="20" best-possible-match="QSIISDSSNSSTDPISSGET"/>
+<motif name="ILGYLEGTRTLLASKIINNN" alt="MEME-63" width="20" best-possible-match="ILGYLEGTRTLLASKIINNN"/>
+<motif name="WJNDYLAPLFGAGYLIKPIT" alt="MEME-64" width="20" best-possible-match="WINDYLAPLFGAGYLIKPIT"/>
+<motif name="LYLHRMQDAEIKLIERLTGL" alt="MEME-65" width="20" best-possible-match="LYLHRMQDAEIKLIERLTGL"/>
+<motif name="SAVTLAEGEGSGALLLJQKY" alt="MEME-66" width="20" best-possible-match="SAVTLAEGEGSGALLLIQKY"/>
+<motif name="NNSASQITDITSSTWFSBQK" alt="MEME-67" width="20" best-possible-match="NNSASQITDITSSTWFSNQK"/>
+<motif name="NNEYLHQLFFWHDLAILTRR" alt="MEME-68" width="20" best-possible-match="KNEYLHQLFFWHDLAILTRR"/>
+<motif name="QFLDEIINYTLQDAAFLDYY" alt="MEME-69" width="20" best-possible-match="QFLDEIINYTLQDAAFLKYY"/>
+<motif name="INYAVALYDIRFRNTETSDI" alt="MEME-70" width="20" best-possible-match="INYAVALYDIRFRNTETSDI"/>
+<motif name="YLGNTILRTKKLDLENFLYY" alt="MEME-71" width="20" best-possible-match="YLGNTILRTKKLTLENFLYY"/>
+<motif name="IREFHRILJRLQLTPQQLCE" alt="MEME-72" width="20" best-possible-match="IREFHRILLRLQLTPQQLCE"/>
+<motif name="VTKFJSDVPVATLPIDYJVP" alt="MEME-73" width="20" best-possible-match="VTKFLSDVPVATLPIDYIVP"/>
+<motif name="LQAEIRELVNDYNQQRQSRT" alt="MEME-74" width="20" best-possible-match="LQAEIRELVNDYNQQRQSRT"/>
+<motif name="LNHIDPQVLKVVVLKVFLSD" alt="MEME-75" width="20" best-possible-match="LNHIDPQVLKVVVLKVFLSD"/>
+<motif name="LKFFLIVQALKNNSTWQTEL" alt="MEME-76" width="20" best-possible-match="LKFFLIVQALKNNSTWQTEL"/>
+<motif name="GRLNRGNNRSTWFVHDDLID" alt="MEME-77" width="20" best-possible-match="GRLNRGNNRSTWFVHDDLID"/>
+<motif name="VCSDYPDPSDISKLYNAGDY" alt="MEME-78" width="20" best-possible-match="VCSDYPDPSDISKLYNAGDY"/>
+<motif name="ZAIELTYRHTLRTQGPFNAI" alt="MEME-79" width="20" best-possible-match="EAIELTYRHTLRTQGPFNAI"/>
+<motif name="LAVIHTLRELTSNRRLKPSQ" alt="MEME-80" width="20" best-possible-match="LAVIHTLRELTSNRRLKPSQ"/>
+<motif name="TQDNISKYLRQLRSMLDTTI" alt="MEME-81" width="20" best-possible-match="TQDNISKYLRQLRSMLDTTI"/>
+<motif name="EGDPIISHRLVLPFFKLSKD" alt="MEME-82" width="20" best-possible-match="SGDPSISHRLVLPFFKLSKD"/>
+<motif name="VFPLEEEDEEQDQSDEDNAS" alt="MEME-83" width="20" best-possible-match="VFPLEEEDEEQDQSDEDNAS"/>
+<motif name="ITQPLPAATWTDETPSGSNG" alt="MEME-84" width="20" best-possible-match="ITQPLPAATWTDETPSGSNG"/>
+<motif name="DDDDSPPGPGLYEDBAERAK" alt="MEME-85" width="20" best-possible-match="DDDDSPPGPGLYEDNAERAK"/>
+<motif name="APPAPVYKDDISEATQVGGH" alt="MEME-86" width="20" best-possible-match="APPAPVYKDDISEATQVGGH"/>
+<motif name="IGAQEDLVBDTFQEKJKNVI" alt="MEME-87" width="20" best-possible-match="TGAQEDLVNDTFQEKIKNLI"/>
+<motif name="QTMSNHRKKGKIHKENPCKG" alt="MEME-88" width="20" best-possible-match="QTMSNHRKKGKIHKENPCKG"/>
+<motif name="NGSKNISGQGPVKTSSEPTT" alt="MEME-89" width="20" best-possible-match="NGSKNISGQGPAKTSSEPTT"/>
+<motif name="ESINEFLHKJLSLLKHGPKS" alt="MEME-90" width="20" best-possible-match="ESINEFLHKILSLLKHGPKS"/>
+<motif name="KSPKPQERKDFSQYRLSNNG" alt="MEME-91" width="20" best-possible-match="KSPKPQERKDFSQYRLSNNG"/>
+<motif name="NFDRSRHSVKSRDHNSASKR" alt="MEME-92" width="20" best-possible-match="NFDRSRHSVKSRDHNSASKR"/>
+<motif name="GSKAPGNLHJTKPEGNTNRP" alt="MEME-93" width="20" best-possible-match="GSKAPGNLHITKPGGNTTLP"/>
+<motif name="SRKTQDHNDNSRGDGTRTEP" alt="MEME-94" width="20" best-possible-match="SRKTQDHSDNSRGDGTRTEP"/>
+<motif name="VRRFSSNHQSDVTYYNATIG" alt="MEME-95" width="20" best-possible-match="VRRFSSNHQSDVTYYNATIG"/>
+<motif name="EQLMTAKIGITDIIIDIDAN" alt="MEME-96" width="20" best-possible-match="EQLMTAKIGITDIIIDIDAN"/>
+<motif name="SRGTIPTAPPAYNEELYPTD" alt="MEME-97" width="20" best-possible-match="SRGTIPTAPPAYNEELYPTD"/>
+<motif name="IPKEVSIQNDGHLDLAENNY" alt="MEME-98" width="20" best-possible-match="IPKEVSIQNDGHLDLAENNY"/>
+<motif name="MESZRGTVLTEGDYFQNNTP" alt="MEME-99" width="20" best-possible-match="MESQRGTVLTEGDYFQNNTP"/>
+<motif name="PRETHSSTRDAPTADVPSNS" alt="MEME-100" width="20" best-possible-match="PRESHSSTRDAPTLDVPSNS"/>
+<background source="--nrdb--">
+<value letter="A">0.073</value>
+<value letter="C">0.018</value>
+<value letter="D">0.052</value>
+<value letter="E">0.062</value>
+<value letter="F">0.040</value>
+<value letter="G">0.069</value>
+<value letter="H">0.022</value>
+<value letter="I">0.056</value>
+<value letter="K">0.058</value>
+<value letter="L">0.092</value>
+<value letter="M">0.023</value>
+<value letter="N">0.046</value>
+<value letter="P">0.051</value>
+<value letter="Q">0.041</value>
+<value letter="R">0.052</value>
+<value letter="S">0.074</value>
+<value letter="T">0.059</value>
+<value letter="V">0.064</value>
+<value letter="W">0.013</value>
+<value letter="Y">0.033</value>
+</background>
+<cisml-file>cisml.xml</cisml-file>
+</fimo>
