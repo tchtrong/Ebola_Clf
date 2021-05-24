@@ -20,5 +20,3 @@ for fasta in list_fasta:
                         fasta.as_posix()], capture_output=True)
         with open("fimo/{}/{}.txt".format(fasta.name[:-6], i), "wb") as f:
             f.write(out.stdout)
-
-# %%
