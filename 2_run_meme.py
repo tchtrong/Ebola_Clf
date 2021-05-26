@@ -1,19 +1,35 @@
 # %%
 
 import subprocess
+from pathlib import Path
 
-for i in range(3, 20):
-    process = subprocess.run(["/home/binn/.meme/bin/meme",
-                        #"-searchsize", "0",
-                        "-protein",
-                        "-objfun", "classic",
-                        "-oc", "test_motifs/{}_{}".format(i, i),
-                        "-mod", "zoops",
-                        "-minw", str(i), "-maxw", str(i),
-                        #"-nmotifs", "10",
-                        "-minsites", "23",
-                        "-evt", "0.05",
-                        "-p", '10 --use-hwthread-cpus',
-                        "fasta_cleaned/all.fasta"], capture_output=True)
+
+def run_meme(no_X: bool):
+    motifs_folder = Path()
+    fasta = Path()
+    if no_X:
+        motifs_folder = Path("motifs_no_X")
+        fasta = Path("fasta_cleaned_no_X")
+    else:
+        motifs_folder = Path("motifs_no_X")
+        fasta = Path("fasta_cleaned_no_X")
+    motifs_folder.mkdir(exist_ok=True)
+    fasta.joinpath("all.fasta")
+    for i in range(3, 21):
+        sub_folder = motifs_folder.joinpath("{}".format(i))
+        sub_folder.mkdir(exist_ok=True)
+        process = subprocess.run(["meme",
+                                  "-searchsize", "0",
+                                  "-protein",
+                                  "-objfun", "classic",
+                                  "-oc", sub_folder.as_posix(),
+                                  "-mod", "zoops",
+                                  "-minw", str(i), "-maxw", str(i),
+                                  "-nmotifs", "200",
+                                  "-minsites", "20",
+                                  "-evt", "0.0005",
+                                  "-p", '48 --use-hwthread-cpus',
+                                  fasta.as_posix()], capture_output=True)
 
 # %%
+run_meme(True)
