@@ -7,9 +7,9 @@ def run_fimo(path):
     p = Path(path)
     motif_folder = Path()
     if "X" in p.as_posix():
-        motif_folder = Path("motifs")
-    else:
         motif_folder = Path("motifs_no_X")
+    else:
+        motif_folder = Path("motifs")
     list_fasta = list(p.glob("[!a]??.fasta"))
     fimo_dir = Path('fimo' + p.as_posix()[5:])
     fimo_dir.mkdir(exist_ok=True)
@@ -32,4 +32,3 @@ def run_fimo(path):
 
 # %%
 run_fimo("fasta_not_X")
-# %%

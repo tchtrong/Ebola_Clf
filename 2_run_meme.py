@@ -11,10 +11,10 @@ def run_meme(no_X: bool):
         motifs_folder = Path("motifs_no_X")
         fasta = Path("fasta_cleaned_no_X")
     else:
-        motifs_folder = Path("motifs_no_X")
-        fasta = Path("fasta_cleaned_no_X")
+        motifs_folder = Path("motifs")
+        fasta = Path("fasta_cleaned")
     motifs_folder.mkdir(exist_ok=True)
-    fasta.joinpath("all.fasta")
+    fasta = fasta.joinpath("all.fasta")
     for i in range(3, 21):
         sub_folder = motifs_folder.joinpath("{}".format(i))
         sub_folder.mkdir(exist_ok=True)
@@ -28,8 +28,14 @@ def run_meme(no_X: bool):
                                   "-nmotifs", "200",
                                   "-minsites", "20",
                                   "-evt", "0.0005",
-                                  "-p", '48 --use-hwthread-cpus',
+                                  "-p", '8 --use-hwthread-cpus',
                                   fasta.as_posix()], capture_output=True)
+        if process.returncode != 0:
+            print(process.stderr)
+            break
+
 
 # %%
-run_meme(True)
+run_meme(no_X=True)
+
+# %%
