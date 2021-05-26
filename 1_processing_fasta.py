@@ -8,9 +8,9 @@ list_fasta = list(fasta_orginal.glob("*"))
 list_fasta.sort()
 
 # %%
-processing_fasta(list_fasta, keep_X=True, keep_duplicate=True)
-processing_fasta(list_fasta, keep_X=True, keep_duplicate=False)
-processing_fasta(list_fasta, keep_X=False, keep_duplicate=True)
-processing_fasta(list_fasta, keep_X=False, keep_duplicate=False)
+states = [True, False]
+for keep_duplicate in states:
+    for keep_X in states:
+        processing_fasta(list_fasta, keep_X, keep_duplicate)
 
 # %%
