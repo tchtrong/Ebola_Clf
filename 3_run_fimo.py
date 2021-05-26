@@ -8,8 +8,8 @@ fimo_dir = p.joinpath("fimo")
 fimo_dir.mkdir(exist_ok=True)
 
 # %%
-list_fasta = list(p.joinpath("fasta_cleaned").glob("[!az]*.fasta"))
-list_fasta = list_fasta + list(p.joinpath("fasta_cleaned").glob("zai_*.fasta"))
+list_fasta = list(p.joinpath("fasta").glob("[!az]*.fasta"))
+list_fasta = list_fasta + list(p.joinpath("fasta").glob("zai_*.fasta"))
 
 # %%
 for fasta in list_fasta:

@@ -1,1 +1,0 @@
-organisms = ["bom", "bun", "res", "sud", "tai", "zai"]
