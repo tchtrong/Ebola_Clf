@@ -33,9 +33,9 @@ def run_meme(no_X: bool):
         if process.returncode != 0:
             print(process.stderr)
             break
+        else:
+            print("Finished finding motifs with length {}".format(i))
 
 
 # %%
 run_meme(no_X=True)
-run_meme(no_X=False)
-# %%
