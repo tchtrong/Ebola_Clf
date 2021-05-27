@@ -29,17 +29,24 @@ def read_fasta(path, keep_X, keep_duplicate, idx):
     return list_sequences
 
 
-def concanate_fasta(path: Path):
+def fasta_for_MEME(path: Path):
     all_fasta = path.joinpath("all.fasta")
     all_fasta.unlink(missing_ok=True)
     for i in path.glob("zai_*"):
         i.unlink()
-    list_fasta = list(path.glob("*.fasta"))
-    list_fasta.sort()
+    list_fasta_no_zai = list(path.glob("[!z]*.fasta"))
+    list_fasta_no_zai.sort()
     with open(all_fasta, 'wb') as wfd:
-        for f in list_fasta:
+        for f in list_fasta_no_zai:
             with open(f, 'rb') as fd:
                 shutil.copyfileobj(fd, wfd)
+    wfd = open(all_fasta, 'a')
+    rng = default_rng(400)
+    list_zai = np.array(
+        list(SeqIO.parse(path / "zai.fasta", "fasta")), dtype=SeqRecord)
+    list_zai = rng.choice(list_zai, 400)
+    SeqIO.write(list_zai, wfd, "fasta")
+    wfd.close()
 
 
 def random_zaire(path: Path):
@@ -72,5 +79,5 @@ def processing_fasta(list_fasta, keep_X, keep_duplicate):
     for fasta in list_fasta:
         SeqIO.write(read_fasta(fasta, keep_X, keep_duplicate, idx),
                     folder / fasta.name, "fasta")
-    concanate_fasta(folder)
+    fasta_for_MEME(folder)
     random_zaire(folder)
