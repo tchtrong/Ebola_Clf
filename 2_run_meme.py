@@ -27,8 +27,8 @@ def run_meme(no_X: bool):
                                   "-minw", str(i), "-maxw", str(i),
                                   "-nmotifs", "200",
                                   "-minsites", "20",
-                                  "-evt", "0.0005",
-                                  "-p", '8 --use-hwthread-cpus',
+                                  "-evt", "5.0e-006",
+                                  "-p", '48 --use-hwthread-cpus',
                                   fasta.as_posix()], capture_output=True)
         if process.returncode != 0:
             print(process.stderr)
@@ -37,5 +37,5 @@ def run_meme(no_X: bool):
 
 # %%
 run_meme(no_X=True)
-
+run_meme(no_X=False)
 # %%
