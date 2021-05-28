@@ -1,5 +1,5 @@
 *.png
-
+motifs_backup/**/*.eps
 __pycache__
 .vscode
 test*
