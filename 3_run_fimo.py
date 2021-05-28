@@ -31,4 +31,4 @@ def run_fimo(path):
 
 
 # %%
-run_fimo("fasta_not_X")
+run_fimo("fasta_no_X")
