@@ -81,3 +81,12 @@ def processing_fasta(list_fasta, keep_X, keep_duplicate):
                     folder / fasta.name, "fasta")
     fasta_for_MEME(folder)
     random_zaire(folder)
+
+
+def get_file_name(start: str, is_fimo: bool, is_cleaned: bool, extenstion: str):
+    if is_fimo:
+        start += "_fimo"
+    if is_cleaned:
+        start += "_cleaned"
+    start += ("_no_X" + '.' + extenstion)
+    return start

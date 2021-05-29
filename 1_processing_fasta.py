@@ -1,6 +1,6 @@
 # %%
 from pathlib import Path
-from utils import processing_fasta
+from utils.utils import processing_fasta
 
 # %%
 fasta_orginal = Path("fasta_original")

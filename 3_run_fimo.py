@@ -19,13 +19,14 @@ def run_fimo(path):
             out = subprocess.run(["fimo",
                                   "--skip-matched-sequence",
                                   "--max-stored-scores", "1000000",
+                                  "--thresh", "1.0e-4", #Default 1.0e-4
                                   file_motif.as_posix(),
                                   fasta.as_posix()],
                                  capture_output=True)
             if out.returncode == 1:
                 print(out.stderr)
             else:
-                with open(species_dir / "{}.txt".format(i), "wb") as f:
+                with open(species_dir / "{}".format(i), "wb") as f:
                     f.write(out.stdout)
 
 
