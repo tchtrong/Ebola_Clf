@@ -26,7 +26,7 @@ def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int
                 "-minw", str(i), "-maxw", str(i),
                 "-nmotifs", str(n_motifs),
                 "-minsites", str(minsites),
-                "-evt", "5.0e-006",
+                "-evt", str(evt),
                 "-p", '{} --use-hwthread-cpus'.format(
                     n_threads),
                 data.as_posix()]
