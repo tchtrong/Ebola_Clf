@@ -4,7 +4,7 @@ import shutil
 
 
 def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
-
+    data = Path(data)
     motifs_folder = Path()
     if "X" in data.name:
         motifs_folder = Path("motifs_no_X")
