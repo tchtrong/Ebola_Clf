@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil
 
 
-def run_meme(data: Path, n_motifs: int = 20, n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
+def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
 
     motifs_folder = Path()
     if "X" in data.name:
@@ -22,7 +22,7 @@ def run_meme(data: Path, n_motifs: int = 20, n_threads: int = 4, searchfull: boo
                 "-protein",
                 "-objfun", "classic",
                 "-oc", sub_folder.as_posix(),
-                "-mod", "zoops",
+                "-mod", mode,
                 "-minw", str(i), "-maxw", str(i),
                 "-nmotifs", str(n_motifs),
                 "-minsites", str(minsites),
