@@ -47,7 +47,7 @@ def spliting_train_test(is_fimo: bool, is_cleaned: bool):
     write_train_test_set_to_csv(lst, train_test_names)
 
 
-def get_train_test_set(is_fimo: bool, is_cleaned: bool):
+def get_train_test_set(is_fimo: bool, is_cleaned: bool) -> list[pd.DataFrame]:
     files = get_name_train_test_set(is_fimo, is_cleaned)
     train_test_set = []
     train_test_set_folder = Path("train_test")
