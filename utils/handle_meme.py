@@ -5,11 +5,17 @@ import shutil
 
 def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
     data = Path(data)
-    motifs_folder = Path()
+    motifs_folder = "motifs"
+
     if "X" in data.name:
-        motifs_folder = Path("motifs_no_X")
-    else:
-        motifs_folder = Path("motifs")
+        motifs_folder += "_no_X"
+    if mode == "oops":
+        motifs_folder += "_oops"
+    if mode == "anr":
+        motifs_folder += "_anr"
+
+    motifs_folder = Path(motifs_folder)
+    
     shutil.rmtree(motifs_folder, ignore_errors=True)
     motifs_folder.mkdir()
     data = data.joinpath("all.fasta")

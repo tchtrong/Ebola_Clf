@@ -3,14 +3,13 @@ from sklearn import svm
 from utils.spliting_train_test import get_train_test_set
 from pathlib import Path
 import pandas as pd
-from utils.utils import get_file_name
 
 
 def run_SVM(is_fimo: bool, is_cleaned: bool):
     result_folder = Path("results")
     result_folder.mkdir(exist_ok=True)
 
-    file_result = get_file_name('SVM', is_fimo, is_cleaned, 'csv')
+    file_result = "SVM.csv"
 
     X_train, X_test, y_train, y_test = get_train_test_set(is_fimo, is_cleaned)
 
@@ -31,4 +30,4 @@ def run_SVM(is_fimo: bool, is_cleaned: bool):
 
 
 # %%
-run_SVM(is_fimo=True, is_cleaned=True)
+run_SVM(is_fimo=True, is_cleaned=False)

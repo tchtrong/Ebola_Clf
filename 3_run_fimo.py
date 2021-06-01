@@ -1,35 +1,44 @@
 # %%
 import subprocess
 from pathlib import Path
+import shutil
 
 
-def run_fimo(path):
-    p = Path(path)
-    motif_folder = Path("motifs_no_X")
-    list_fasta = list(p.glob("[!a]??[!_]fasta"))
-    fimo_dir = Path('fimo' + p.as_posix()[5:])
+def run_fimo(data_folder, motif_folder, thresh: float = 1.0e-4):
+
+    data_folder = Path(data_folder)
+    motif_folder = Path(motif_folder)
+
+    files = list(data_folder.glob("[!a]??[!_]*"))
+
+    fimo_dir = Path('fimo' + data_folder.as_posix()[7:])
+    shutil.rmtree(fimo_dir, ignore_errors=True)
     fimo_dir.mkdir(exist_ok=True)
-    for fasta in list_fasta:
-        species = fasta.name[:3]
+
+    for file in files:
+        species = file.name[:3]
         species_dir = fimo_dir.joinpath(species)
         species_dir.mkdir(exist_ok=True)
+
         for i in range(3, 21):
             file_motif = motif_folder.joinpath(
                 "{}".format(i)).joinpath("meme.txt")
+
             out = subprocess.run(["fimo",
                                   "--skip-matched-sequence",
                                   "--max-stored-scores", "1000000",
-                                  "--thresh", "1.0e-4", #Default 1.0e-4
+                                  "--thresh", str(thresh),  # Default 1.0e-4
                                   file_motif.as_posix(),
-                                  fasta.as_posix()],
+                                  file.as_posix()],
                                  capture_output=True)
+
             if out.returncode == 1:
                 print(out.stderr)
+                break
             else:
                 with open(species_dir / "{}".format(i), "wb") as f:
                     f.write(out.stdout)
 
 
 # %%
-run_fimo("fasta_no_X")
-run_fimo("fasta_cleaned_no_X")
+run_fimo("dataset_no_X", "motifs_no_X")
