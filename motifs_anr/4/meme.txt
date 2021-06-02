@@ -1,0 +1,1672 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 5.3.3 (Release date: Sun Feb 7 15:39:52 2021 -0800)
+
+For further information on how to interpret these results please access https://meme-suite.org/meme.
+To get a copy of the MEME Suite software please access https://meme-suite.org.
+
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to discover
+motifs in biopolymers", Proceedings of the Second International
+Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
+AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+PRIMARY SEQUENCES= dataset/all.fasta
+CONTROL SEQUENCES= --none--
+ALPHABET= ACDEFGHIKLMNPQRSTVWY
+Sequence name            Weight Length  Sequence name            Weight Length  
+-------------            ------ ------  -------------            ------ ------  
+0                        1.0000   2210  1                        1.0000    251  
+2                        1.0000    289  3                        1.0000    302  
+4                        1.0000    373  5                        1.0000    676  
+6                        1.0000    326  7                        1.0000    341  
+8                        1.0000    739  9                        1.0000    676  
+10                       1.0000    303  11                       1.0000   2210  
+12                       1.0000    251  13                       1.0000    289  
+14                       1.0000    676  15                       1.0000    326  
+16                       1.0000    341  17                       1.0000    739  
+18                       1.0000    676  19                       1.0000    287  
+20                       1.0000    251  21                       1.0000   2212  
+22                       1.0000    739  23                       1.0000    329  
+24                       1.0000    287  25                       1.0000   2212  
+26                       1.0000    739  27                       1.0000    329  
+28                       1.0000    331  29                       1.0000    677  
+30                       1.0000    331  31                       1.0000    677  
+32                       1.0000    677  33                       1.0000    332  
+34                       1.0000    332  35                       1.0000    367  
+36                       1.0000    367  37                       1.0000    367  
+38                       1.0000   2212  39                       1.0000    319  
+40                       1.0000    738  41                       1.0000    329  
+42                       1.0000    326  43                       1.0000    288  
+44                       1.0000    251  45                       1.0000   2210  
+46                       1.0000    372  47                       1.0000    676  
+48                       1.0000    738  49                       1.0000    676  
+50                       1.0000   2210  51                       1.0000    676  
+52                       1.0000    372  53                       1.0000   2210  
+54                       1.0000    251  55                       1.0000    288  
+56                       1.0000    318  57                       1.0000    372  
+58                       1.0000    676  59                       1.0000    329  
+60                       1.0000    738  61                       1.0000   2210  
+62                       1.0000    676  63                       1.0000    329  
+64                       1.0000    738  65                       1.0000    318  
+66                       1.0000   2210  67                       1.0000    251  
+68                       1.0000    738  69                       1.0000    738  
+70                       1.0000   2210  71                       1.0000    288  
+72                       1.0000    676  73                       1.0000    326  
+74                       1.0000    329  75                       1.0000    738  
+76                       1.0000   2210  77                       1.0000    288  
+78                       1.0000    676  79                       1.0000    329  
+80                       1.0000    738  81                       1.0000   2210  
+82                       1.0000    288  83                       1.0000    676  
+84                       1.0000    738  85                       1.0000    676  
+86                       1.0000   2210  87                       1.0000    326  
+88                       1.0000    329  89                       1.0000    738  
+90                       1.0000    738  91                       1.0000    365  
+92                       1.0000    676  93                       1.0000   2210  
+94                       1.0000    251  95                       1.0000    289  
+96                       1.0000    302  97                       1.0000    365  
+98                       1.0000    676  99                       1.0000    326  
+100                      1.0000    341  101                      1.0000    739  
+102                      1.0000    302  103                      1.0000   2210  
+104                      1.0000    289  105                      1.0000    365  
+106                      1.0000    676  107                      1.0000   2210  
+108                      1.0000    676  109                      1.0000    365  
+110                      1.0000    303  111                      1.0000    364  
+112                      1.0000   2212  113                      1.0000   2054  
+114                      1.0000    324  115                      1.0000    669  
+116                      1.0000    739  117                      1.0000   2211  
+118                      1.0000    676  119                      1.0000    326  
+120                      1.0000   2212  121                      1.0000   2212  
+122                      1.0000   2212  123                      1.0000    297  
+124                      1.0000    246  125                      1.0000    251  
+126                      1.0000    297  127                      1.0000   2212  
+128                      1.0000    248  129                      1.0000    297  
+130                      1.0000    326  131                      1.0000    297  
+132                      1.0000    739  133                      1.0000    251  
+134                      1.0000   2212  135                      1.0000   2212  
+136                      1.0000    297  137                      1.0000    364  
+138                      1.0000   2212  139                      1.0000    297  
+140                      1.0000    322  141                      1.0000    364  
+142                      1.0000    297  143                      1.0000    341  
+144                      1.0000    735  145                      1.0000    297  
+146                      1.0000    340  147                      1.0000    739  
+148                      1.0000    251  149                      1.0000   2212  
+150                      1.0000    483  151                      1.0000   2147  
+152                      1.0000    297  153                      1.0000    739  
+154                      1.0000    288  155                      1.0000   2212  
+156                      1.0000    364  157                      1.0000    364  
+158                      1.0000   2212  159                      1.0000    676  
+160                      1.0000   2212  
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme -protein -objfun classic -oc motifs_anr/4 -mod anr -minw 4 -maxw 4 -nmotifs 200 -minsites 10 -evt 0.05 dataset/all.fasta -searchsize 0 -mpi 
+
+model:  mod=           anr    nmotifs=       200    evt=          0.05
+objective function:           em=       E-value of product of p-values
+                              starts=   E-value of product of p-values
+width:  minw=            4    maxw=            4
+nsites: minsites=       10    maxsites=      805    wnsites=       0.8
+theta:  spmap=         pam    spfuzz=        120
+em:     prior=       megap    b=          622355    maxiter=        50
+        distance=    1e-05
+trim:   wg=             11    ws=              1    endgaps=       yes
+data:   n=          128451    N=             161
+sample: seed=            0    hsfrac=          0
+        searchsize= 128451    norand=         no    csites=       1000
+Dirichlet mixture priors file: prior30.plib
+Letter frequencies in dataset:
+A 0.0591 C 0.017 D 0.0504 E 0.0533 F 0.0446 G 0.0546 H 0.0306 I 0.0612 K 0.0509 
+L 0.106 M 0.0159 N 0.0496 P 0.0552 Q 0.0472 R 0.0519 S 0.0783 T 0.0735 V 0.0533 
+W 0.014 Y 0.0332 
+Background letter frequencies (from file dataset with add-one prior applied):
+A 0.0591 C 0.017 D 0.0504 E 0.0533 F 0.0446 G 0.0546 H 0.0306 I 0.0612 K 0.0509 
+L 0.106 M 0.0159 N 0.0496 P 0.0552 Q 0.0472 R 0.0519 S 0.0782 T 0.0735 V 0.0533 
+W 0.014 Y 0.0332 
+Background model order: 0
+********************************************************************************
+
+
+********************************************************************************
+MOTIF GEWA MEME-1	width =   4  sites = 217  llr = 2386  E-value = 1.8e-290
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 Description
+--------------------------------------------------------------------------------
+Simplified        A  :::a
+pos.-specific     C  ::::
+probability       D  ::::
+matrix            E  :9::
+                  F  ::::
+                  G  a:1:
+                  H  ::1:
+                  I  ::::
+                  K  ::1:
+                  L  ::::
+                  M  ::::
+                  N  ::::
+                  P  ::::
+                  Q  ::::
+                  R  ::::
+                  S  :1::
+                  T  ::::
+                  V  ::::
+                  W  ::6:
+                  Y  ::1:
+
+         bits    6.2     
+                 5.5     
+                 4.9     
+                 4.3 *  *
+Relative         3.7 ****
+Entropy          3.1 ****
+(15.9 bits)      2.5 ****
+                 1.8 ****
+                 1.2 ****
+                 0.6 ****
+                 0.0 ----
+
+Multilevel           GEWA
+consensus                
+sequence                 
+                         
+                         
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name             Start   P-value            Site  
+-------------             ----- ---------            ----
+159                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKNLTR
+159                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+157                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKTSLE
+157                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+156                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKTSLE
+156                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+152                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+152                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+145                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+145                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNIEIKK
+143                         263  2.41e-06 KVNPEIDTTI GEWA FWETKKTSLE
+143                          79  2.41e-06 XXXXXVNYEA GEWA ENCYNLEIKK
+142                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+142                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+141                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKTSLE
+141                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+139                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+139                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+137                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+136                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+136                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+131                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+131                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+129                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+129                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+126                         286  2.41e-06 KVNPEIDTTI GEWA FWETKKPH  
+126                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+123                         286  2.41e-06 KVNPGIDTTI GEWA FWETKKPH  
+123                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+118                         286  2.41e-06 KVNPGIDTTI GEWA FWETKKNLTR
+118                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+115                         286  2.41e-06 KVNPGIDTTI GEWA FWETKKNLTR
+115                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+114                         246  2.41e-06 KVNPEIDTTI GEWA FWETKKTSLE
+114                          62  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+111                         286  2.41e-06 KVNPGIDTTI GEWA FWETKKTSLE
+111                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLEIKK
+110                         286  2.41e-06 KINPTVDTSM GEWA FWENKKKLQK
+110                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+109                         286  2.41e-06 KINPTVDTSM GEWA FWENKKTSKK
+109                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+108                         286  2.41e-06 KINPTVDTSM GEWA FWENKKNFKK
+108                         102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+106                         286  2.41e-06 KINPTVDTSM GEWA FWENKKNFTK
+106                         102  2.41e-06 VPPKVVNCEA GEWA ENCYNLAIKK
+105                         286  2.41e-06 KINPTVDTSM GEWA FWENKKTSQK
+105                         102  2.41e-06 VPPKVVNCEA GEWA ENCYNLAIKK
+102                         286  2.41e-06 KINPTVDTSM GEWA FWENKKLHKN
+102                         102  2.41e-06 VPPKVVNCEA GEWA ENCYNLAIKK
+98                          286  2.41e-06 KINPTVDTSM GEWA FWENKKNFTK
+98                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+97                          286  2.41e-06 KINPTVDTSM GEWA FWENKKTSQK
+97                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+96                          286  2.41e-06 KINPTVDTSM GEWA FWENKKLHKN
+96                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+92                          286  2.41e-06 KINPTVDTSM GEWA FWENKKNFTK
+92                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+91                          286  2.41e-06 KINPTVDTSM GEWA FWENKKTSQK
+91                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLAIKK
+85                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+85                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+83                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+83                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+78                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+78                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+72                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+72                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+65                          286  2.41e-06 TLDANINADI GEWA FWENKKSLRT
+65                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+62                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+62                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+58                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+58                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+57                          286  2.41e-06 TLDANINADI GEWA FWENKKISPN
+57                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+56                          286  2.41e-06 TLDANINADI GEWA FWENKKSLRT
+56                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+52                          286  2.41e-06 TLDANINADI GEWA FWENKKISPN
+52                          102  2.41e-06 VPPQVVSYEA GEWA ENCYNLEIKK
+51                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+51                          102  2.41e-06 VPPQVVSYEA GEWA ENCYNLEIKK
+49                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+49                          102  2.41e-06 VPPQVVSYEA GEWA ENCYNLEIKK
+47                          286  2.41e-06 TLDANINADI GEWA FWENKKNLSE
+47                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+46                          286  2.41e-06 TLDANINADI GEWA FWENKKISPN
+46                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+39                          286  2.41e-06 TLDANINADI GEWA FWENKKKSLR
+39                          102  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+37                          287  2.41e-06 TLDPKIEPDV GEWA FWETKKTFPN
+37                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+36                          287  2.41e-06 TLDPKIEPDV GEWA FWETKKTFPN
+36                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+35                          287  2.41e-06 TVDPKIEPDV GEWA FWETKKTFPN
+35                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+34                          287  2.41e-06 TVDPKIEPDV GEWA FWETKKKLFP
+34                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+33                          287  2.41e-06 TLDPKIEPDV GEWA FWETKKKLFP
+33                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+32                          287  2.41e-06 TLDPKIEPDV GEWA FWETKKNFSQ
+32                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+31                          287  2.41e-06 TLDPKIEPDV GEWA FWETKKNFSQ
+31                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+29                          287  2.41e-06 TVDPKIEPDV GEWA FWETKKNFSQ
+29                          103  2.41e-06 VPPKVVSYEA GEWA ENCYNLEIKK
+18                          286  2.41e-06 KVNPTVDTGV GEWA FWENKKNFTK
+18                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+14                          286  2.41e-06 KVNPTVDTGV GEWA FWENKKNFTK
+14                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+10                          286  2.41e-06 KVNPTVDTGV GEWA FWENKKKLHK
+10                          102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+9                           286  2.41e-06 KVNPTVDTGV GEWA FWENKKNFTK
+9                           102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+5                           286  2.41e-06 KVNPTVDTGV GEWA FWENKKNFTK
+5                           102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+4                           286  2.41e-06 KVNPTVDTGV GEWA FWENKKTSQK
+4                           102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+3                           286  2.41e-06 KVNPTVDTGV GEWA FWENKKLHKN
+3                           102  2.41e-06 VPPKVVNYEA GEWA ENCYNLDIKK
+160                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+158                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+155                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+153                         291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+150                         118  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+149                         619  1.34e-05 ASWHHTSDDF GEHA TVRGGSFVTD
+147                         291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSX
+144                         287  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+138                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+135                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+134                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+132                         291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+127                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+122                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+121                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+120                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+117                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+116                         291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+112                         619  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+101                         291  1.34e-05 KAALSSLAQH GEYA PFARLLNLSG
+90                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+89                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+86                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+84                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+81                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+80                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+76                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+75                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+70                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+69                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+68                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+66                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+64                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+61                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+60                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+53                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+50                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+48                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+45                          620  1.34e-05 ASWHHTSDDF GEHA TVRGSSFVTD
+40                          291  1.34e-05 KAALGSLAKH GEYA PFARLLNLSG
+26                          291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+22                          291  1.34e-05 KAALSSLAKH GEYA PFARLLNLSG
+17                          291  1.34e-05 KAALASLAQH GEYA PFARLLNLSG
+8                           291  1.34e-05 KAALASLAQH GEYA PFARLLNLSG
+153                         164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+147                         164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+144                         160  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+132                         164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+116                         164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+101                         164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+90                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+89                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+84                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+80                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+75                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+69                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+68                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+64                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+60                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+48                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+40                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+26                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+22                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+17                          164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+8                           164  2.21e-05 ASLFLPKLVV GEKA CLEKVQRQIQ
+90                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+89                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+84                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+80                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+75                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+69                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+68                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+64                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+60                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+48                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+40                            7  2.57e-05     MDKRVR GSWA LGGQSEVDLD
+160                        1836  3.51e-05 NFKSAVTLAE GEGA GALLLIQKYQ
+158                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+155                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+151                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+149                        1836  3.51e-05 NFKSAVTLAE GEGA GALLLIQKYQ
+135                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+134                        1836  3.51e-05 NFKSAVTLAE GEGA GALLLIQKYQ
+127                        1836  3.51e-05 NFKSAVTLAE GEGA GALLLIQKYQ
+122                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+121                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+120                        1836  3.51e-05 NFKSAVTLAE GEGA GALLLIQKYQ
+117                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+113                        1810  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+112                        1836  3.51e-05 SFKSAVTLAE GEGA GALLLIQKYQ
+107                         619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+103                         619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+93                          619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+38                          619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+25                          619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+21                          619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+11                          619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+0                           619  4.36e-05 ASWHHTSDDF GENA TVRGSSFVTD
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+159                               2.4e-06  101_[1]_180_[1]_387
+157                               2.4e-06  101_[1]_180_[1]_75
+156                               2.4e-06  101_[1]_180_[1]_75
+152                               2.4e-06  101_[1]_180_[1]_8
+145                               2.4e-06  101_[1]_180_[1]_8
+143                               2.4e-06  78_[1]_180_[1]_75
+142                               2.4e-06  101_[1]_180_[1]_8
+141                               2.4e-06  101_[1]_180_[1]_75
+139                               2.4e-06  101_[1]_180_[1]_8
+137                               2.4e-06  101_[1]_259
+136                               2.4e-06  101_[1]_180_[1]_8
+131                               2.4e-06  101_[1]_180_[1]_8
+129                               2.4e-06  101_[1]_180_[1]_8
+126                               2.4e-06  101_[1]_180_[1]_8
+123                               2.4e-06  101_[1]_180_[1]_8
+118                               2.4e-06  101_[1]_180_[1]_387
+115                               2.4e-06  101_[1]_180_[1]_380
+114                               2.4e-06  61_[1]_180_[1]_75
+111                               2.4e-06  101_[1]_180_[1]_75
+110                               2.4e-06  101_[1]_180_[1]_14
+109                               2.4e-06  101_[1]_180_[1]_76
+108                               2.4e-06  101_[1]_180_[1]_387
+106                               2.4e-06  101_[1]_180_[1]_387
+105                               2.4e-06  101_[1]_180_[1]_76
+102                               2.4e-06  101_[1]_180_[1]_13
+98                                2.4e-06  101_[1]_180_[1]_387
+97                                2.4e-06  101_[1]_180_[1]_76
+96                                2.4e-06  101_[1]_180_[1]_13
+92                                2.4e-06  101_[1]_180_[1]_387
+91                                2.4e-06  101_[1]_180_[1]_76
+85                                2.4e-06  101_[1]_180_[1]_387
+83                                2.4e-06  101_[1]_180_[1]_387
+78                                2.4e-06  101_[1]_180_[1]_387
+72                                2.4e-06  101_[1]_180_[1]_387
+65                                2.4e-06  101_[1]_180_[1]_29
+62                                2.4e-06  101_[1]_180_[1]_387
+58                                2.4e-06  101_[1]_180_[1]_387
+57                                2.4e-06  101_[1]_180_[1]_83
+56                                2.4e-06  101_[1]_180_[1]_29
+52                                2.4e-06  101_[1]_180_[1]_83
+51                                2.4e-06  101_[1]_180_[1]_387
+49                                2.4e-06  101_[1]_180_[1]_387
+47                                2.4e-06  101_[1]_180_[1]_387
+46                                2.4e-06  101_[1]_180_[1]_83
+39                                2.4e-06  101_[1]_180_[1]_30
+37                                2.4e-06  102_[1]_180_[1]_77
+36                                2.4e-06  102_[1]_180_[1]_77
+35                                2.4e-06  102_[1]_180_[1]_77
+34                                2.4e-06  102_[1]_180_[1]_42
+33                                2.4e-06  102_[1]_180_[1]_42
+32                                2.4e-06  102_[1]_180_[1]_387
+31                                2.4e-06  102_[1]_180_[1]_387
+29                                2.4e-06  102_[1]_180_[1]_387
+18                                2.4e-06  101_[1]_180_[1]_387
+14                                2.4e-06  101_[1]_180_[1]_387
+10                                2.4e-06  101_[1]_180_[1]_14
+9                                 2.4e-06  101_[1]_180_[1]_387
+5                                 2.4e-06  101_[1]_180_[1]_387
+4                                 2.4e-06  101_[1]_180_[1]_84
+3                                 2.4e-06  101_[1]_180_[1]_13
+160                               3.5e-05  618_[1]_1213_[1]_373
+158                               3.5e-05  618_[1]_1213_[1]_373
+155                               3.5e-05  618_[1]_1213_[1]_373
+153                               2.2e-05  163_[1]_123_[1]_445
+150                               1.3e-05  117_[1]_362
+149                               3.5e-05  618_[1]_1213_[1]_373
+147                               2.2e-05  163_[1]_123_[1]_445
+144                               2.2e-05  159_[1]_123_[1]_445
+138                               1.3e-05  618_[1]_1590
+135                               3.5e-05  618_[1]_1213_[1]_373
+134                               3.5e-05  618_[1]_1213_[1]_373
+132                               2.2e-05  163_[1]_123_[1]_445
+127                               3.5e-05  618_[1]_1213_[1]_373
+122                               3.5e-05  618_[1]_1213_[1]_373
+121                               3.5e-05  618_[1]_1213_[1]_373
+120                               3.5e-05  618_[1]_1213_[1]_373
+117                               3.5e-05  618_[1]_1213_[1]_372
+116                               2.2e-05  163_[1]_123_[1]_445
+112                               3.5e-05  618_[1]_1213_[1]_373
+101                               2.2e-05  163_[1]_123_[1]_445
+90                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+89                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+86                                1.3e-05  619_[1]_1587
+84                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+81                                1.3e-05  619_[1]_1587
+80                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+76                                1.3e-05  619_[1]_1587
+75                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+70                                1.3e-05  619_[1]_1587
+69                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+68                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+66                                1.3e-05  619_[1]_1587
+64                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+61                                1.3e-05  619_[1]_1587
+60                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+53                                1.3e-05  619_[1]_1587
+50                                1.3e-05  619_[1]_1587
+48                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+45                                1.3e-05  619_[1]_1587
+40                                2.6e-05  6_[1]_153_[1]_123_[1]_444
+26                                2.2e-05  163_[1]_123_[1]_445
+22                                2.2e-05  163_[1]_123_[1]_445
+17                                2.2e-05  163_[1]_123_[1]_445
+8                                 2.2e-05  163_[1]_123_[1]_445
+151                               3.5e-05  1835_[1]_308
+113                               3.5e-05  1809_[1]_241
+107                               4.4e-05  618_[1]_1588
+103                               4.4e-05  618_[1]_1588
+93                                4.4e-05  618_[1]_1588
+38                                4.4e-05  618_[1]_1590
+25                                4.4e-05  618_[1]_1590
+21                                4.4e-05  618_[1]_1590
+11                                4.4e-05  618_[1]_1588
+0                                 4.4e-05  618_[1]_1588
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF GEWA width=4 seqs=217
+159                      (  286) GEWA  1 
+159                      (  102) GEWA  1 
+157                      (  286) GEWA  1 
+157                      (  102) GEWA  1 
+156                      (  286) GEWA  1 
+156                      (  102) GEWA  1 
+152                      (  286) GEWA  1 
+152                      (  102) GEWA  1 
+145                      (  286) GEWA  1 
+145                      (  102) GEWA  1 
+143                      (  263) GEWA  1 
+143                      (   79) GEWA  1 
+142                      (  286) GEWA  1 
+142                      (  102) GEWA  1 
+141                      (  286) GEWA  1 
+141                      (  102) GEWA  1 
+139                      (  286) GEWA  1 
+139                      (  102) GEWA  1 
+137                      (  102) GEWA  1 
+136                      (  286) GEWA  1 
+136                      (  102) GEWA  1 
+131                      (  286) GEWA  1 
+131                      (  102) GEWA  1 
+129                      (  286) GEWA  1 
+129                      (  102) GEWA  1 
+126                      (  286) GEWA  1 
+126                      (  102) GEWA  1 
+123                      (  286) GEWA  1 
+123                      (  102) GEWA  1 
+118                      (  286) GEWA  1 
+118                      (  102) GEWA  1 
+115                      (  286) GEWA  1 
+115                      (  102) GEWA  1 
+114                      (  246) GEWA  1 
+114                      (   62) GEWA  1 
+111                      (  286) GEWA  1 
+111                      (  102) GEWA  1 
+110                      (  286) GEWA  1 
+110                      (  102) GEWA  1 
+109                      (  286) GEWA  1 
+109                      (  102) GEWA  1 
+108                      (  286) GEWA  1 
+108                      (  102) GEWA  1 
+106                      (  286) GEWA  1 
+106                      (  102) GEWA  1 
+105                      (  286) GEWA  1 
+105                      (  102) GEWA  1 
+102                      (  286) GEWA  1 
+102                      (  102) GEWA  1 
+98                       (  286) GEWA  1 
+98                       (  102) GEWA  1 
+97                       (  286) GEWA  1 
+97                       (  102) GEWA  1 
+96                       (  286) GEWA  1 
+96                       (  102) GEWA  1 
+92                       (  286) GEWA  1 
+92                       (  102) GEWA  1 
+91                       (  286) GEWA  1 
+91                       (  102) GEWA  1 
+85                       (  286) GEWA  1 
+85                       (  102) GEWA  1 
+83                       (  286) GEWA  1 
+83                       (  102) GEWA  1 
+78                       (  286) GEWA  1 
+78                       (  102) GEWA  1 
+72                       (  286) GEWA  1 
+72                       (  102) GEWA  1 
+65                       (  286) GEWA  1 
+65                       (  102) GEWA  1 
+62                       (  286) GEWA  1 
+62                       (  102) GEWA  1 
+58                       (  286) GEWA  1 
+58                       (  102) GEWA  1 
+57                       (  286) GEWA  1 
+57                       (  102) GEWA  1 
+56                       (  286) GEWA  1 
+56                       (  102) GEWA  1 
+52                       (  286) GEWA  1 
+52                       (  102) GEWA  1 
+51                       (  286) GEWA  1 
+51                       (  102) GEWA  1 
+49                       (  286) GEWA  1 
+49                       (  102) GEWA  1 
+47                       (  286) GEWA  1 
+47                       (  102) GEWA  1 
+46                       (  286) GEWA  1 
+46                       (  102) GEWA  1 
+39                       (  286) GEWA  1 
+39                       (  102) GEWA  1 
+37                       (  287) GEWA  1 
+37                       (  103) GEWA  1 
+36                       (  287) GEWA  1 
+36                       (  103) GEWA  1 
+35                       (  287) GEWA  1 
+35                       (  103) GEWA  1 
+34                       (  287) GEWA  1 
+34                       (  103) GEWA  1 
+33                       (  287) GEWA  1 
+33                       (  103) GEWA  1 
+32                       (  287) GEWA  1 
+32                       (  103) GEWA  1 
+31                       (  287) GEWA  1 
+31                       (  103) GEWA  1 
+29                       (  287) GEWA  1 
+29                       (  103) GEWA  1 
+18                       (  286) GEWA  1 
+18                       (  102) GEWA  1 
+14                       (  286) GEWA  1 
+14                       (  102) GEWA  1 
+10                       (  286) GEWA  1 
+10                       (  102) GEWA  1 
+9                        (  286) GEWA  1 
+9                        (  102) GEWA  1 
+5                        (  286) GEWA  1 
+5                        (  102) GEWA  1 
+4                        (  286) GEWA  1 
+4                        (  102) GEWA  1 
+3                        (  286) GEWA  1 
+3                        (  102) GEWA  1 
+160                      (  619) GEHA  1 
+158                      (  619) GEHA  1 
+155                      (  619) GEHA  1 
+153                      (  291) GEYA  1 
+150                      (  118) GEYA  1 
+149                      (  619) GEHA  1 
+147                      (  291) GEYA  1 
+144                      (  287) GEYA  1 
+138                      (  619) GEHA  1 
+135                      (  619) GEHA  1 
+134                      (  619) GEHA  1 
+132                      (  291) GEYA  1 
+127                      (  619) GEHA  1 
+122                      (  619) GEHA  1 
+121                      (  619) GEHA  1 
+120                      (  619) GEHA  1 
+117                      (  619) GEHA  1 
+116                      (  291) GEYA  1 
+112                      (  619) GEHA  1 
+101                      (  291) GEYA  1 
+90                       (  291) GEYA  1 
+89                       (  291) GEYA  1 
+86                       (  620) GEHA  1 
+84                       (  291) GEYA  1 
+81                       (  620) GEHA  1 
+80                       (  291) GEYA  1 
+76                       (  620) GEHA  1 
+75                       (  291) GEYA  1 
+70                       (  620) GEHA  1 
+69                       (  291) GEYA  1 
+68                       (  291) GEYA  1 
+66                       (  620) GEHA  1 
+64                       (  291) GEYA  1 
+61                       (  620) GEHA  1 
+60                       (  291) GEYA  1 
+53                       (  620) GEHA  1 
+50                       (  620) GEHA  1 
+48                       (  291) GEYA  1 
+45                       (  620) GEHA  1 
+40                       (  291) GEYA  1 
+26                       (  291) GEYA  1 
+22                       (  291) GEYA  1 
+17                       (  291) GEYA  1 
+8                        (  291) GEYA  1 
+153                      (  164) GEKA  1 
+147                      (  164) GEKA  1 
+144                      (  160) GEKA  1 
+132                      (  164) GEKA  1 
+116                      (  164) GEKA  1 
+101                      (  164) GEKA  1 
+90                       (  164) GEKA  1 
+89                       (  164) GEKA  1 
+84                       (  164) GEKA  1 
+80                       (  164) GEKA  1 
+75                       (  164) GEKA  1 
+69                       (  164) GEKA  1 
+68                       (  164) GEKA  1 
+64                       (  164) GEKA  1 
+60                       (  164) GEKA  1 
+48                       (  164) GEKA  1 
+40                       (  164) GEKA  1 
+26                       (  164) GEKA  1 
+22                       (  164) GEKA  1 
+17                       (  164) GEKA  1 
+8                        (  164) GEKA  1 
+90                       (    7) GSWA  1 
+89                       (    7) GSWA  1 
+84                       (    7) GSWA  1 
+80                       (    7) GSWA  1 
+75                       (    7) GSWA  1 
+69                       (    7) GSWA  1 
+68                       (    7) GSWA  1 
+64                       (    7) GSWA  1 
+60                       (    7) GSWA  1 
+48                       (    7) GSWA  1 
+40                       (    7) GSWA  1 
+160                      ( 1836) GEGA  1 
+158                      ( 1836) GEGA  1 
+155                      ( 1836) GEGA  1 
+151                      ( 1836) GEGA  1 
+149                      ( 1836) GEGA  1 
+135                      ( 1836) GEGA  1 
+134                      ( 1836) GEGA  1 
+127                      ( 1836) GEGA  1 
+122                      ( 1836) GEGA  1 
+121                      ( 1836) GEGA  1 
+120                      ( 1836) GEGA  1 
+117                      ( 1836) GEGA  1 
+113                      ( 1810) GEGA  1 
+112                      ( 1836) GEGA  1 
+107                      (  619) GENA  1 
+103                      (  619) GENA  1 
+93                       (  619) GENA  1 
+38                       (  619) GENA  1 
+25                       (  619) GENA  1 
+21                       (  619) GENA  1 
+11                       (  619) GENA  1 
+0                        (  619) GENA  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 20 w= 4 n= 123988 bayes= 9.49662 E= 1.8e-290 
+ -1107  -1015  -1065  -1157  -1127    419  -1063  -1253  -1130  -1179  -1152  -1123  -1052  -1136  -1087  -1146  -1160  -1183  -1035  -1097 
+  -954   -984   -913    415  -1114   -938  -1031  -1197  -1021  -1146  -1076  -1050  -1022   -993  -1049    -63  -1074  -1095  -1031  -1079 
+  -857   -805   -782   -849   -469     23    172   -850     92   -805   -717    -42   -939   -800   -789   -823   -879   -815    541    163 
+   408   -958  -1060  -1142  -1114   -933  -1056  -1219  -1121  -1162  -1104  -1100  -1034  -1116  -1077  -1025  -1077  -1104  -1030  -1089 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 20 w= 4 nsites= 217 E= 1.8e-290 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.949309  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.050691  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.064516  0.101382  0.000000  0.096774  0.000000  0.000000  0.036866  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.599078  0.101382 
+ 1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif GEWA MEME-1 regular expression
+--------------------------------------------------------------------------------
+GEWA
+--------------------------------------------------------------------------------
+
+
+
+
+Time 395.83 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+MOTIF KRWG MEME-2	width =   4  sites = 143  llr = 1600  E-value = 2.5e-175
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 Description
+--------------------------------------------------------------------------------
+Simplified        A  ::::
+pos.-specific     C  ::::
+probability       D  ::::
+matrix            E  ::::
+                  F  ::::
+                  G  :::8
+                  H  :2::
+                  I  ::::
+                  K  6:::
+                  L  ::::
+                  M  ::::
+                  N  :::1
+                  P  ::::
+                  Q  3:::
+                  R  18::
+                  S  :::1
+                  T  ::::
+                  V  ::::
+                  W  ::a:
+                  Y  ::::
+
+         bits    6.2   * 
+                 5.5   * 
+                 4.9   * 
+                 4.3   * 
+Relative         3.7  ** 
+Entropy          3.1 ****
+(16.1 bits)      2.5 ****
+                 1.8 ****
+                 1.2 ****
+                 0.6 ****
+                 0.0 ----
+
+Multilevel           KRWG
+consensus            QH  
+sequence                 
+                         
+                         
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name             Start   P-value            Site  
+-------------             ----- ---------            ----
+159                          84  2.02e-06 GVATDVPSVT KRWG FRSGVPPKVV
+157                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+156                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+152                          84  2.02e-06 GVATDVPSVT KRWG FRSGVPPKVV
+145                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+142                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+141                          84  2.02e-06 XXXXXXXXAT KRWG FRSGVPPKVV
+139                          84  2.02e-06 GXXXXXXSAT KRWG FRSGVPPKVV
+137                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+136                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+131                          84  2.02e-06 GVATDVPSAT KRWG FRSGVPPKVV
+129                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+123                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+118                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+115                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+114                          44  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+111                          84  2.02e-06 GAATDVPSAT KRWG FRSGVPPKVV
+110                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+109                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+108                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+106                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+105                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+102                          84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+98                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+97                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+96                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+92                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+91                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+85                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+83                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+78                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+72                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+65                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+62                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+58                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+57                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+56                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+52                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPQVV
+51                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPQVV
+49                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPQVV
+47                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+46                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+39                           84  2.02e-06 GVSTDIPSAT KRWG FRSGVPPKVV
+37                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+36                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+35                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+34                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+33                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+32                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+31                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+29                           85  2.02e-06 GIATDVPSAT KRWG FRSGVPPKVV
+18                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+14                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+10                           84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+9                            84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+5                            84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+4                            84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+3                            84  2.02e-06 GVATDVPTAT KRWG FRAGVPPKVV
+159                         595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+118                         595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+115                         595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+108                         595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+106                         595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+98                          595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+92                          595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+32                          596  3.89e-06 LNRKAIDFLL QRWG GTCRILGPSC
+31                          596  3.89e-06 LNRKAIDFLL QRWG GTCRILGPSC
+29                          596  3.89e-06 LNRKAIDFLL QRWG GTCRILGPSC
+18                          595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+14                          595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+9                           595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+5                           595  3.89e-06 LNRKAIDFLL QRWG GTCHILGPDC
+160                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+158                         373  5.08e-06 QQLCELFSIQ KHWG HPVLXSETAI
+155                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+151                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+149                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+138                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+135                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+134                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+127                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+122                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+121                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+120                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+117                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+112                         373  5.08e-06 QQLCELFSIQ KHWG HPVLHSETAI
+107                         373  5.08e-06 QQLCELFSVQ KHWG HPVLHSEKAI
+103                         373  5.08e-06 QQLCELFSVQ KHWG HPVLHSEKAI
+93                          373  5.08e-06 QQLCELFSVQ KHWG HPVLHSEKAI
+86                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+81                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+76                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+70                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+66                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+61                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+53                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+50                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+45                          374  5.08e-06 QQLCELFSIQ KHWG HPVLHSEKAI
+38                          373  5.08e-06 QQFCELFSVQ KHWG HPILHSEKAI
+25                          373  5.08e-06 QQFCELFSVQ KHWG HPILHSEKAI
+21                          373  5.08e-06 QQFCELFSVQ KHWG HPILHSEKAI
+11                          373  5.08e-06 QQLCELFSVQ KHWG HPVLHSEKAI
+0                           373  5.08e-06 QQLCELFSVQ KHWG HPVLHSEKAI
+85                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+83                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+78                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+72                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+62                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+58                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+51                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+49                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+47                          595  1.30e-05 LNRKAIDFLL RRWG GTCRILGPDC
+160                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+158                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+155                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+151                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+149                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+138                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+135                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+134                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+127                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+121                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+120                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+117                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+113                        1054  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+112                        1080  1.74e-05 VLDRLRKITL QRWS LWFSYLDHCD
+107                        1080  1.74e-05 ILDRLRKITL QRWS LWFSYLDHCD
+103                        1080  1.74e-05 ILDRLRKITL QRWS LWFSYLDHCD
+93                         1080  1.74e-05 ILDRLRKITL QRWS LWFSYLDHCD
+86                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+81                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+76                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+70                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+66                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+61                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+53                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+50                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+45                         1081  1.74e-05 ILERLRKITL QRWN LWFSYLDHCD
+38                         1080  1.74e-05 VLDKLRKITL QRWN LWFSYLDHCD
+25                         1080  1.74e-05 VLDKLRKITL QRWN LWFSYLDHCD
+21                         1080  1.74e-05 VLDKLRKITL QRWN LWFSYLDHCD
+11                         1080  1.74e-05 ILDRLRKITL QRWS LWFSYLDHCD
+0                          1080  1.74e-05 ILDRLRKITL QRWS LWFSYLDHCD
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+159                               3.9e-06  83_[2]_507_[2]_78
+157                                 2e-06  83_[2]_277
+156                                 2e-06  83_[2]_277
+152                                 2e-06  83_[2]_210
+145                                 2e-06  83_[2]_210
+142                                 2e-06  83_[2]_210
+141                                 2e-06  83_[2]_277
+139                                 2e-06  83_[2]_210
+137                                 2e-06  83_[2]_277
+136                                 2e-06  83_[2]_210
+131                                 2e-06  83_[2]_210
+129                                 2e-06  83_[2]_210
+123                                 2e-06  83_[2]_210
+118                               3.9e-06  83_[2]_507_[2]_78
+115                               3.9e-06  83_[2]_507_[2]_71
+114                                 2e-06  43_[2]_277
+111                                 2e-06  83_[2]_277
+110                                 2e-06  83_[2]_216
+109                                 2e-06  83_[2]_278
+108                               3.9e-06  83_[2]_507_[2]_78
+106                               3.9e-06  83_[2]_507_[2]_78
+105                                 2e-06  83_[2]_278
+102                                 2e-06  83_[2]_215
+98                                3.9e-06  83_[2]_507_[2]_78
+97                                  2e-06  83_[2]_278
+96                                  2e-06  83_[2]_215
+92                                3.9e-06  83_[2]_507_[2]_78
+91                                  2e-06  83_[2]_278
+85                                1.3e-05  83_[2]_507_[2]_78
+83                                1.3e-05  83_[2]_507_[2]_78
+78                                1.3e-05  83_[2]_507_[2]_78
+72                                1.3e-05  83_[2]_507_[2]_78
+65                                  2e-06  83_[2]_231
+62                                1.3e-05  83_[2]_507_[2]_78
+58                                1.3e-05  83_[2]_507_[2]_78
+57                                  2e-06  83_[2]_285
+56                                  2e-06  83_[2]_231
+52                                  2e-06  83_[2]_285
+51                                1.3e-05  83_[2]_507_[2]_78
+49                                1.3e-05  83_[2]_507_[2]_78
+47                                1.3e-05  83_[2]_507_[2]_78
+46                                  2e-06  83_[2]_285
+39                                  2e-06  83_[2]_232
+37                                  2e-06  84_[2]_279
+36                                  2e-06  84_[2]_279
+35                                  2e-06  84_[2]_279
+34                                  2e-06  84_[2]_244
+33                                  2e-06  84_[2]_244
+32                                3.9e-06  84_[2]_507_[2]_78
+31                                3.9e-06  84_[2]_507_[2]_78
+29                                3.9e-06  84_[2]_507_[2]_78
+18                                3.9e-06  83_[2]_507_[2]_78
+14                                3.9e-06  83_[2]_507_[2]_78
+10                                  2e-06  83_[2]_216
+9                                 3.9e-06  83_[2]_507_[2]_78
+5                                 3.9e-06  83_[2]_507_[2]_78
+4                                   2e-06  83_[2]_286
+3                                   2e-06  83_[2]_215
+160                               1.7e-05  372_[2]_703_[2]_1129
+158                               1.7e-05  372_[2]_703_[2]_1129
+155                               1.7e-05  372_[2]_703_[2]_1129
+151                               1.7e-05  372_[2]_703_[2]_1064
+149                               1.7e-05  372_[2]_703_[2]_1129
+138                               1.7e-05  372_[2]_703_[2]_1129
+135                               1.7e-05  372_[2]_703_[2]_1129
+134                               1.7e-05  372_[2]_703_[2]_1129
+127                               1.7e-05  372_[2]_703_[2]_1129
+122                               5.1e-06  372_[2]_1836
+121                               1.7e-05  372_[2]_703_[2]_1129
+120                               1.7e-05  372_[2]_703_[2]_1129
+117                               1.7e-05  372_[2]_703_[2]_1128
+112                               1.7e-05  372_[2]_703_[2]_1129
+107                               1.7e-05  372_[2]_703_[2]_1127
+103                               1.7e-05  372_[2]_703_[2]_1127
+93                                1.7e-05  372_[2]_703_[2]_1127
+86                                1.7e-05  373_[2]_703_[2]_1126
+81                                1.7e-05  373_[2]_703_[2]_1126
+76                                1.7e-05  373_[2]_703_[2]_1126
+70                                1.7e-05  373_[2]_703_[2]_1126
+66                                1.7e-05  373_[2]_703_[2]_1126
+61                                1.7e-05  373_[2]_703_[2]_1126
+53                                1.7e-05  373_[2]_703_[2]_1126
+50                                1.7e-05  373_[2]_703_[2]_1126
+45                                1.7e-05  373_[2]_703_[2]_1126
+38                                1.7e-05  372_[2]_703_[2]_1129
+25                                1.7e-05  372_[2]_703_[2]_1129
+21                                1.7e-05  372_[2]_703_[2]_1129
+11                                1.7e-05  372_[2]_703_[2]_1127
+0                                 1.7e-05  372_[2]_703_[2]_1127
+113                               1.7e-05  1053_[2]_997
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF KRWG width=4 seqs=143
+159                      (   84) KRWG  1 
+157                      (   84) KRWG  1 
+156                      (   84) KRWG  1 
+152                      (   84) KRWG  1 
+145                      (   84) KRWG  1 
+142                      (   84) KRWG  1 
+141                      (   84) KRWG  1 
+139                      (   84) KRWG  1 
+137                      (   84) KRWG  1 
+136                      (   84) KRWG  1 
+131                      (   84) KRWG  1 
+129                      (   84) KRWG  1 
+123                      (   84) KRWG  1 
+118                      (   84) KRWG  1 
+115                      (   84) KRWG  1 
+114                      (   44) KRWG  1 
+111                      (   84) KRWG  1 
+110                      (   84) KRWG  1 
+109                      (   84) KRWG  1 
+108                      (   84) KRWG  1 
+106                      (   84) KRWG  1 
+105                      (   84) KRWG  1 
+102                      (   84) KRWG  1 
+98                       (   84) KRWG  1 
+97                       (   84) KRWG  1 
+96                       (   84) KRWG  1 
+92                       (   84) KRWG  1 
+91                       (   84) KRWG  1 
+85                       (   84) KRWG  1 
+83                       (   84) KRWG  1 
+78                       (   84) KRWG  1 
+72                       (   84) KRWG  1 
+65                       (   84) KRWG  1 
+62                       (   84) KRWG  1 
+58                       (   84) KRWG  1 
+57                       (   84) KRWG  1 
+56                       (   84) KRWG  1 
+52                       (   84) KRWG  1 
+51                       (   84) KRWG  1 
+49                       (   84) KRWG  1 
+47                       (   84) KRWG  1 
+46                       (   84) KRWG  1 
+39                       (   84) KRWG  1 
+37                       (   85) KRWG  1 
+36                       (   85) KRWG  1 
+35                       (   85) KRWG  1 
+34                       (   85) KRWG  1 
+33                       (   85) KRWG  1 
+32                       (   85) KRWG  1 
+31                       (   85) KRWG  1 
+29                       (   85) KRWG  1 
+18                       (   84) KRWG  1 
+14                       (   84) KRWG  1 
+10                       (   84) KRWG  1 
+9                        (   84) KRWG  1 
+5                        (   84) KRWG  1 
+4                        (   84) KRWG  1 
+3                        (   84) KRWG  1 
+159                      (  595) QRWG  1 
+118                      (  595) QRWG  1 
+115                      (  595) QRWG  1 
+108                      (  595) QRWG  1 
+106                      (  595) QRWG  1 
+98                       (  595) QRWG  1 
+92                       (  595) QRWG  1 
+32                       (  596) QRWG  1 
+31                       (  596) QRWG  1 
+29                       (  596) QRWG  1 
+18                       (  595) QRWG  1 
+14                       (  595) QRWG  1 
+9                        (  595) QRWG  1 
+5                        (  595) QRWG  1 
+160                      (  373) KHWG  1 
+158                      (  373) KHWG  1 
+155                      (  373) KHWG  1 
+151                      (  373) KHWG  1 
+149                      (  373) KHWG  1 
+138                      (  373) KHWG  1 
+135                      (  373) KHWG  1 
+134                      (  373) KHWG  1 
+127                      (  373) KHWG  1 
+122                      (  373) KHWG  1 
+121                      (  373) KHWG  1 
+120                      (  373) KHWG  1 
+117                      (  373) KHWG  1 
+112                      (  373) KHWG  1 
+107                      (  373) KHWG  1 
+103                      (  373) KHWG  1 
+93                       (  373) KHWG  1 
+86                       (  374) KHWG  1 
+81                       (  374) KHWG  1 
+76                       (  374) KHWG  1 
+70                       (  374) KHWG  1 
+66                       (  374) KHWG  1 
+61                       (  374) KHWG  1 
+53                       (  374) KHWG  1 
+50                       (  374) KHWG  1 
+45                       (  374) KHWG  1 
+38                       (  373) KHWG  1 
+25                       (  373) KHWG  1 
+21                       (  373) KHWG  1 
+11                       (  373) KHWG  1 
+0                        (  373) KHWG  1 
+85                       (  595) RRWG  1 
+83                       (  595) RRWG  1 
+78                       (  595) RRWG  1 
+72                       (  595) RRWG  1 
+62                       (  595) RRWG  1 
+58                       (  595) RRWG  1 
+51                       (  595) RRWG  1 
+49                       (  595) RRWG  1 
+47                       (  595) RRWG  1 
+160                      ( 1080) QRWS  1 
+158                      ( 1080) QRWS  1 
+155                      ( 1080) QRWS  1 
+151                      ( 1080) QRWS  1 
+149                      ( 1080) QRWS  1 
+138                      ( 1080) QRWS  1 
+135                      ( 1080) QRWS  1 
+134                      ( 1080) QRWS  1 
+127                      ( 1080) QRWS  1 
+121                      ( 1080) QRWS  1 
+120                      ( 1080) QRWS  1 
+117                      ( 1080) QRWS  1 
+113                      ( 1054) QRWS  1 
+112                      ( 1080) QRWS  1 
+107                      ( 1080) QRWS  1 
+103                      ( 1080) QRWS  1 
+93                       ( 1080) QRWS  1 
+86                       ( 1081) QRWN  1 
+81                       ( 1081) QRWN  1 
+76                       ( 1081) QRWN  1 
+70                       ( 1081) QRWN  1 
+66                       ( 1081) QRWN  1 
+61                       ( 1081) QRWN  1 
+53                       ( 1081) QRWN  1 
+50                       ( 1081) QRWN  1 
+45                       ( 1081) QRWN  1 
+38                       ( 1080) QRWN  1 
+25                       ( 1080) QRWN  1 
+21                       ( 1080) QRWN  1 
+11                       ( 1080) QRWS  1 
+0                        ( 1080) QRWS  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 20 w= 4 n= 123988 bayes= 9.62708 E= 2.5e-175 
+  -629   -737   -748   -579   -857   -696   -560   -748    360   -723   -577   -604   -769    271     35   -666   -663   -680   -726   -700 
+ -1045   -954  -1003  -1085  -1048   -911    283  -1184  -1009  -1112  -1078  -1055   -991  -1054    391  -1082  -1094  -1115   -968  -1007 
+ -1058   -957  -1006  -1099  -1059   -913  -1002  -1194  -1072  -1118  -1092  -1066   -993  -1077  -1028  -1092  -1103  -1125    616  -1025 
+  -500   -626   -583   -678   -847    383   -701   -866   -695   -891   -722     74   -757   -727   -732     74   -672   -722   -804   -791 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 20 w= 4 nsites= 143 E= 2.5e-175 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.622378  0.000000  0.000000  0.000000  0.000000  0.314685  0.062937  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.216783  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.783217  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.783217  0.000000  0.000000  0.000000  0.000000  0.000000  0.083916  0.000000  0.000000  0.000000  0.132867  0.000000  0.000000  0.000000  0.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif KRWG MEME-2 regular expression
+--------------------------------------------------------------------------------
+[KQ][RH]WG
+--------------------------------------------------------------------------------
+
+
+
+
+Time 538.70 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+MOTIF WMHY MEME-3	width =   4  sites = 121  llr = 1330  E-value = 8.8e-125
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 Description
+--------------------------------------------------------------------------------
+Simplified        A  ::::
+pos.-specific     C  ::::
+probability       D  ::::
+matrix            E  ::::
+                  F  :::1
+                  G  2:::
+                  H  ::9:
+                  I  ::::
+                  K  ::::
+                  L  ::::
+                  M  :a:2
+                  N  ::::
+                  P  ::::
+                  Q  ::::
+                  R  ::::
+                  S  3:::
+                  T  ::::
+                  V  :::2
+                  W  3:::
+                  Y  2::5
+
+         bits    6.2     
+                 5.5  *  
+                 4.9  *  
+                 4.3  ** 
+Relative         3.7  ** 
+Entropy          3.1 *** 
+(15.9 bits)      2.5 ****
+                 1.8 ****
+                 1.2 ****
+                 0.6 ****
+                 0.0 ----
+
+Multilevel           WMHY
+consensus            S  V
+sequence             Y   
+                         
+                         
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name             Start   P-value            Site  
+-------------             ----- ---------            ----
+160                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+158                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+155                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+151                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+149                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+138                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+135                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+134                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+127                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+122                         664  2.26e-07 XCYGVKNVFN WMHY TIPQCYMHVS
+121                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+120                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+112                         664  2.26e-07 RCYGVKNVFN WMHY TIPQCYMHVS
+107                         664  2.26e-07 RCYGVRNLFN WMHY TIPQCYIHVS
+103                         664  2.26e-07 RCYGVRNLFN WMHY TIPQCYIHVS
+93                          664  2.26e-07 RCYGVRNLFN WMHY TIPQCYIHVS
+38                          664  2.26e-07 HCYGVRNVFN WMHY LIPQCYMHVS
+25                          664  2.26e-07 HCYGVRNVFN WMHY LIPQCYMHVS
+21                          664  2.26e-07 HCYGVRNVFN WMHY LIPQCYMHVS
+11                          664  2.26e-07 RCYGVKNLFN WMHY TIPQCYIHVS
+0                           664  2.26e-07 RCYGVKNLFN WMHY TIPQCYIHVS
+160                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEIE
+158                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+155                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+151                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+149                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEIE
+138                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+135                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+134                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEIE
+127                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEIE
+122                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+121                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+120                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEIE
+117                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+113                        1786  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+112                        1812  3.64e-06 VYCRFTGIVS SMHY KLDEVLWEME
+107                        1812  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEFD
+103                        1812  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEFD
+93                         1812  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEFD
+86                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+81                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+76                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+70                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+66                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+61                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+53                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+50                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+45                         1809  3.64e-06 IYCRFTGIVS SMHY KLDEVLWEYN
+38                         1810  3.64e-06 IYCRFTGIVS SMHY KLDEVLLEYN
+25                         1810  3.64e-06 IYCRFTGIVS SMHY KLDEVLLEYN
+21                         1810  3.64e-06 IYCRFTGIVS SMHY KLDEVLLEYN
+11                         1812  3.64e-06 VYCRFTGVVS SMHY KLDEVLWEFD
+0                          1812  3.64e-06 VYCRFTGVVS SMHY KLDEVLWEFD
+153                         218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+150                          45  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+147                         218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+144                         214  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+132                         218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+116                         218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+101                         218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+90                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+89                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+86                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+84                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+81                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+80                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+76                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+75                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+70                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+69                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+68                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+66                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+64                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+61                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+60                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+53                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+50                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+48                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+45                          665  4.97e-06 QCYGVRNVFD WMHF LIPQCYMHVS
+40                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDTV
+26                          218  4.97e-06 FLIKYLLIHQ GMHM VAGHDANDAV
+22                          218  4.97e-06 FLIKYLLIHQ GMHM VAGHDANDAV
+17                          218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+8                           218  4.97e-06 FLIKFLLIHQ GMHM VAGHDANDAV
+160                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+158                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+155                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+151                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+149                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+138                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+135                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+134                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+127                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+122                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+121                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+120                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+112                         673  5.83e-06 NWMHYTIPQC YMHV SDYYNPPHNL
+86                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+81                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+76                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+70                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+66                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+61                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+53                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+50                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+45                          674  5.83e-06 DWMHFLIPQC YMHV SDYYNPPHNV
+38                          673  5.83e-06 NWMHYLIPQC YMHV SDYYNPPHNV
+25                          673  5.83e-06 NWMHYLIPQC YMHV SDYYNPPHNV
+21                          673  5.83e-06 NWMHYLIPQC YMHV SDYYNPPHNV
+17                            9  5.12e-05   MDPRPIRT WMMH NTSEVEADYH
+8                             9  5.12e-05   MDPRPIRT WMMH NTSEVEADYH
+101                           9  5.85e-05   MESRAHKA WMTH TASGFETDYH
+153                           9  5.97e-05   MDSRPQKV WMTP NLTESDMDYH
+147                           9  5.97e-05   MDSRPQKV WMTP NLTESDMDYH
+144                           5  5.97e-05       PQKV WMTP NLTESDMDYH
+132                           9  5.97e-05   MDSRPQKV WMTP NLTESDMDYH
+116                           9  5.97e-05   MDSRPQKV WMTP NLTESDMDYH
+11                         1491  1.17e-04 IRTKKLDLSH FMYY LTTQIHNLPH
+0                          1491  1.17e-04 IRTKKLDLSH FMYY LTTQIHNLPH
+11                          212  1.90e-04 TEGIPHAAKD WYHA SIFKEAVQGH
+0                           212  1.90e-04 TEGIPHAAKD WYHA SIFKEAVQGH
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+160                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+158                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+155                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+151                               5.8e-06  663_[3]_5_[3]_1135_[3]_332
+149                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+138                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+135                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+134                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+127                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+122                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+121                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+120                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+112                               5.8e-06  663_[3]_5_[3]_1135_[3]_397
+107                               3.6e-06  663_[3]_1144_[3]_395
+103                               3.6e-06  663_[3]_1144_[3]_395
+93                                3.6e-06  663_[3]_1144_[3]_395
+38                                5.8e-06  663_[3]_5_[3]_1133_[3]_399
+25                                5.8e-06  663_[3]_5_[3]_1133_[3]_399
+21                                5.8e-06  663_[3]_5_[3]_1133_[3]_399
+11                                0.00019  211_[3]_448_[3]_823_[3]_317_[3]_395
+0                                 0.00019  211_[3]_448_[3]_823_[3]_317_[3]_395
+117                               3.6e-06  1811_[3]_396
+113                               3.6e-06  1785_[3]_265
+86                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+81                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+76                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+70                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+66                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+61                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+53                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+50                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+45                                5.8e-06  664_[3]_5_[3]_1131_[3]_398
+153                                 5e-06  8_[3]_205_[3]_518
+150                                 5e-06  44_[3]_435
+147                                 5e-06  8_[3]_205_[3]_518
+144                                 5e-06  4_[3]_205_[3]_518
+132                                 5e-06  8_[3]_205_[3]_518
+116                                 5e-06  8_[3]_205_[3]_518
+101                                 5e-06  8_[3]_205_[3]_518
+90                                  5e-06  217_[3]_517
+89                                  5e-06  217_[3]_517
+84                                  5e-06  217_[3]_517
+80                                  5e-06  217_[3]_517
+75                                  5e-06  217_[3]_517
+69                                  5e-06  217_[3]_517
+68                                  5e-06  217_[3]_517
+64                                  5e-06  217_[3]_517
+60                                  5e-06  217_[3]_517
+48                                  5e-06  217_[3]_517
+40                                  5e-06  217_[3]_517
+26                                  5e-06  217_[3]_518
+22                                  5e-06  217_[3]_518
+17                                  5e-06  8_[3]_205_[3]_518
+8                                   5e-06  8_[3]_205_[3]_518
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF WMHY width=4 seqs=121
+160                      (  664) WMHY  1 
+158                      (  664) WMHY  1 
+155                      (  664) WMHY  1 
+151                      (  664) WMHY  1 
+149                      (  664) WMHY  1 
+138                      (  664) WMHY  1 
+135                      (  664) WMHY  1 
+134                      (  664) WMHY  1 
+127                      (  664) WMHY  1 
+122                      (  664) WMHY  1 
+121                      (  664) WMHY  1 
+120                      (  664) WMHY  1 
+112                      (  664) WMHY  1 
+107                      (  664) WMHY  1 
+103                      (  664) WMHY  1 
+93                       (  664) WMHY  1 
+38                       (  664) WMHY  1 
+25                       (  664) WMHY  1 
+21                       (  664) WMHY  1 
+11                       (  664) WMHY  1 
+0                        (  664) WMHY  1 
+160                      ( 1812) SMHY  1 
+158                      ( 1812) SMHY  1 
+155                      ( 1812) SMHY  1 
+151                      ( 1812) SMHY  1 
+149                      ( 1812) SMHY  1 
+138                      ( 1812) SMHY  1 
+135                      ( 1812) SMHY  1 
+134                      ( 1812) SMHY  1 
+127                      ( 1812) SMHY  1 
+122                      ( 1812) SMHY  1 
+121                      ( 1812) SMHY  1 
+120                      ( 1812) SMHY  1 
+117                      ( 1812) SMHY  1 
+113                      ( 1786) SMHY  1 
+112                      ( 1812) SMHY  1 
+107                      ( 1812) SMHY  1 
+103                      ( 1812) SMHY  1 
+93                       ( 1812) SMHY  1 
+86                       ( 1809) SMHY  1 
+81                       ( 1809) SMHY  1 
+76                       ( 1809) SMHY  1 
+70                       ( 1809) SMHY  1 
+66                       ( 1809) SMHY  1 
+61                       ( 1809) SMHY  1 
+53                       ( 1809) SMHY  1 
+50                       ( 1809) SMHY  1 
+45                       ( 1809) SMHY  1 
+38                       ( 1810) SMHY  1 
+25                       ( 1810) SMHY  1 
+21                       ( 1810) SMHY  1 
+11                       ( 1812) SMHY  1 
+0                        ( 1812) SMHY  1 
+153                      (  218) GMHM  1 
+150                      (   45) GMHM  1 
+147                      (  218) GMHM  1 
+144                      (  214) GMHM  1 
+132                      (  218) GMHM  1 
+116                      (  218) GMHM  1 
+101                      (  218) GMHM  1 
+90                       (  218) GMHM  1 
+89                       (  218) GMHM  1 
+86                       (  665) WMHF  1 
+84                       (  218) GMHM  1 
+81                       (  665) WMHF  1 
+80                       (  218) GMHM  1 
+76                       (  665) WMHF  1 
+75                       (  218) GMHM  1 
+70                       (  665) WMHF  1 
+69                       (  218) GMHM  1 
+68                       (  218) GMHM  1 
+66                       (  665) WMHF  1 
+64                       (  218) GMHM  1 
+61                       (  665) WMHF  1 
+60                       (  218) GMHM  1 
+53                       (  665) WMHF  1 
+50                       (  665) WMHF  1 
+48                       (  218) GMHM  1 
+45                       (  665) WMHF  1 
+40                       (  218) GMHM  1 
+26                       (  218) GMHM  1 
+22                       (  218) GMHM  1 
+17                       (  218) GMHM  1 
+8                        (  218) GMHM  1 
+160                      (  673) YMHV  1 
+158                      (  673) YMHV  1 
+155                      (  673) YMHV  1 
+151                      (  673) YMHV  1 
+149                      (  673) YMHV  1 
+138                      (  673) YMHV  1 
+135                      (  673) YMHV  1 
+134                      (  673) YMHV  1 
+127                      (  673) YMHV  1 
+122                      (  673) YMHV  1 
+121                      (  673) YMHV  1 
+120                      (  673) YMHV  1 
+112                      (  673) YMHV  1 
+86                       (  674) YMHV  1 
+81                       (  674) YMHV  1 
+76                       (  674) YMHV  1 
+70                       (  674) YMHV  1 
+66                       (  674) YMHV  1 
+61                       (  674) YMHV  1 
+53                       (  674) YMHV  1 
+50                       (  674) YMHV  1 
+45                       (  674) YMHV  1 
+38                       (  673) YMHV  1 
+25                       (  673) YMHV  1 
+21                       (  673) YMHV  1 
+17                       (    9) WMMH  1 
+8                        (    9) WMMH  1 
+101                      (    9) WMTH  1 
+153                      (    9) WMTP  1 
+147                      (    9) WMTP  1 
+144                      (    5) WMTP  1 
+132                      (    9) WMTP  1 
+116                      (    9) WMTP  1 
+11                       ( 1491) FMYY  1 
+0                        ( 1491) FMYY  1 
+11                       (  212) WYHA  1 
+0                        (  212) WYHA  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 20 w= 4 n= 123988 bayes= 11.9105 E= 8.8e-125 
+  -812   -721   -889   -883   -118    172   -549   -760   -830   -714   -629   -759   -889   -771   -787    174   -847   -729    455    265 
+  -709   -638   -793   -804   -636   -748   -744   -581   -760   -542    594   -784   -793   -784   -802   -772   -760   -601   -598   -111 
+  -723   -673   -747   -769   -387   -767    489   -741   -768   -689      4   -607   -813   -591   -664   -718    -59   -696   -450    -69 
+  -183   -689   -869   -850     78   -821    -28   -692   -802   -677    350   -746    -43   -755   -768   -786   -794    194   -439    377 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 20 w= 4 nsites= 121 E= 8.8e-125 
+ 0.000000  0.000000  0.000000  0.000000  0.016529  0.181818  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.264463  0.000000  0.000000  0.330579  0.206612 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.983471  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.016529 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.917355  0.000000  0.000000  0.000000  0.016529  0.000000  0.000000  0.000000  0.000000  0.000000  0.049587  0.000000  0.000000  0.016529 
+ 0.016529  0.000000  0.000000  0.000000  0.074380  0.000000  0.024793  0.000000  0.000000  0.000000  0.181818  0.000000  0.041322  0.000000  0.000000  0.000000  0.000000  0.206612  0.000000  0.454545 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif WMHY MEME-3 regular expression
+--------------------------------------------------------------------------------
+[WSY]MH[YV]
+--------------------------------------------------------------------------------
+
+
+
+
+Time 678.78 secs.
+
+********************************************************************************
