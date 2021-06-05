@@ -1,26 +1,18 @@
 import subprocess
 from pathlib import Path
 import shutil
+from utils.common import get_folder, DIR
 
 
-def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
-    data = Path(data)
-    motifs_folder = "motifs"
+def run_meme(no_X: bool = True, mode: str = "zoops", n_motifs: int = 20, length_range: range = range(3, 21), n_threads: int = 4, searchfull: bool = False, evt: float = 5.0e-002, minsites: int = 10):
+    data = get_folder(DIR.DATA, no_X)
+    motifs_folder = get_folder(DIR.MOTIFS, no_X)
 
-    if "X" in data.name:
-        motifs_folder += "_no_X"
-    if mode == "oops":
-        motifs_folder += "_oops"
-    if mode == "anr":
-        motifs_folder += "_anr"
-
-    motifs_folder = Path(motifs_folder)
-    
     shutil.rmtree(motifs_folder, ignore_errors=True)
     motifs_folder.mkdir()
     data = data.joinpath("all.fasta")
 
-    for i in range(3, 21):
+    for i in length_range:
         sub_folder = motifs_folder.joinpath("{}".format(i))
         sub_folder.mkdir()
 
@@ -38,7 +30,7 @@ def run_meme(data: Path, mode: str = "zoops", n_motifs: int = 20, n_threads: int
                 data.as_posix()]
         if searchfull:
             args += ["-searchsize", "0"]
-            
+
         process = subprocess.run(args, capture_output=True)
         if process.returncode != 0:
             print(process.stderr)

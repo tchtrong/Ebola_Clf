@@ -4,9 +4,10 @@ from Bio import SeqIO
 from itertools import compress
 import shutil
 import random
+from utils.common import get_folder, DIR
 
 
-def remove_duplicate(records: list[SeqRecord]):
+def remove_duplicate_seq(records: list[SeqRecord]):
     store_uniques = set()
     new_records = []
     for record in records:
@@ -54,23 +55,13 @@ def remove_sequence_has_X(records: list[SeqRecord]):
         del records[idx + 1:]
 
 
-def processing_records(records_path: Path, format: str, keep_X: bool) -> list[SeqRecord]:
+def processing_records(records_path: Path, format: str, no_X: bool) -> list[SeqRecord]:
     records = list(SeqIO.parse(records_path, format))
     remove_non_human_host_sequence(records)
-    remove_duplicate(records)
-    if not keep_X:
+    remove_duplicate_seq(records)
+    if no_X:
         remove_sequence_has_X(records)
     return records
-
-
-def create_out_folder(keep_X: bool) -> Path:
-    out_folder = "dataset"
-    if not keep_X:
-        out_folder += "_no_X"
-    out_folder = Path(out_folder)
-    shutil.rmtree(out_folder, ignore_errors=True)
-    out_folder.mkdir()
-    return out_folder
 
 
 def clean_records(records: list[SeqRecord], start_idx: list[int]):
@@ -101,18 +92,18 @@ def create_MEME_input(data_folder: Path):
                 shutil.copyfileobj(fin, fout)
 
 
-def processing_data(keep_X: bool = True, seed: int = 423):
+def processing_data(no_X: bool = True, seed: int = 423):
     data_folder = Path("dataset_org")
     files = list(data_folder.glob("*"))
     files.sort()
     format = files[0].name[4:]
 
-    out_folder = create_out_folder(keep_X)
+    out_folder = get_folder(dir_type=DIR.DATA, no_X=no_X)
 
     idx = [0]
     zai_idx = [0]
     for file in files:
-        records = processing_records(file, format, keep_X)
+        records = processing_records(file, format, no_X)
         if "zai" in file.name:
             zai_idx[0] = idx[0]
         if len(records):

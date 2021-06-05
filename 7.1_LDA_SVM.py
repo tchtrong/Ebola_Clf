@@ -7,12 +7,12 @@ from matplotlib import pyplot as plt
 
 # %%
 X_train, X_test, y_train, y_test = get_train_test_set(
-    is_fimo=True, is_cleaned=True)
+    no_X=True, fimo=True)
 
 results_linear = []
 results_rbf = []
 for i in range(10, 2540, 100):
-    lda_model = load('LDA_models/LDA_{}_train_test'.format(i))
+    lda_model: lda = load('LDA_models/LDA_{}_train_test'.format(i))
     X_LDA_train = lda_model.transform(X_train)
     X_LDA_test = lda_model.transform(X_test)
     clf_linear = svm.SVC(kernel='linear')
