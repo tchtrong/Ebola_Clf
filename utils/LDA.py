@@ -3,6 +3,7 @@ from utils.spliting_train_test import get_train_test_set
 from joblib import dump
 import pandas as pd
 import gc
+from utils.common import get_folder, get_file, DIR, FILE
 
 
 def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
@@ -16,10 +17,11 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             random_state=43):
 
     X_train, X_test, _, _ = get_train_test_set(no_X=no_X, fimo=fimo)
+    model_folder = get_folder(dir_type=DIR.LDA_MODEL, no_X=no_X, fimo=fimo)
 
     for i in dimens:
         lda_model = lda(
-            n_components=i, random_state=random_state, n_jobs=n_jobs,
+            n_components=i, n_jobs=n_jobs,
             doc_topic_prior=doc_topic_prior, topic_word_prior=topic_word_prior,
             learning_method=learning_method, learning_decay=learning_decay,
             learning_offset=learning_offset, max_iter=max_iter,
@@ -30,9 +32,10 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             random_state=random_state)
         if not use_test:
             lda_model.fit(X_train)
-            dump(lda_model, 'LDA_models/LDA_{}_train_only'.format(i))
+            dump(lda_model, model_folder/'LDA_train_only_{}'.format(i))
         else:
             lda_model.fit(pd.concat([X_train, X_test]))
-            dump(lda_model, 'LDA_models/LDA_{}_train_test'.format(i))
+            dump(lda_model, model_folder/'LDA_train_test_{}'.format(i))
+        print("Finised component {}".format(i))
         del lda_model
         gc.collect()
