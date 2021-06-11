@@ -4,7 +4,7 @@ from Bio import SeqIO
 from pandas.core.frame import DataFrame
 from utils.common import get_folder, DIR
 from pathlib import Path
-import xml.etree.ElementTree as ET
+import gc
 
 
 def read_fimo(path, n_seq, n_motifs, n_last_seqs, n_last_motifs) -> DataFrame:
@@ -94,6 +94,8 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
 
         n_last_seqs += n_seqs
         print(species, lst_matrices[-1].shape)
+        gc.collect()
+        
 
     lst_matrices: pd.DataFrame = pd.concat(lst_matrices)
     print(lst_matrices.shape)

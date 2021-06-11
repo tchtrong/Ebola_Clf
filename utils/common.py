@@ -9,8 +9,12 @@ class DIR(Enum):
     CSV = "csv"
     MOTIFS = "motifs"
     FIMO = "fimo"
-    SVM = "SVM"
+    LABELS = "labels"
+    SVM_TRAIN_TEST = "SVM_train_test"
+    SVM_RESULTS = "SVM_results"
     LDA_MODEL = "LDA_models"
+    LDA_TRAIN_TEST = "LDA_train_test"
+    LDA_RESULTS = "LDA_results"
 
 
 class FILE(Enum):
@@ -21,6 +25,14 @@ class FILE(Enum):
 class EXT(Enum):
     CSV = ".csv"
     NONE = ""
+
+
+class SCLALER(Enum):
+    RobustScaler = "robust"
+    StandardScaler = "std"
+    MinMaxScaler = "minmax"
+    MaxAbsScaler = "maxabs"
+    NONE = "org"
 
 
 def get_folder(dir_type: DIR, no_X: bool,
