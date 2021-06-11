@@ -10,10 +10,11 @@ def run_fimo(no_X: bool, thresh: float = 1.0e-4):
     motif_folder = get_folder(dir_type=DIR.MOTIFS, no_X=no_X)
     fimo_dir     = get_folder(dir_type=DIR.FIMO, no_X=no_X, recreate=True)
 
-    files = list(data_folder.glob("[!a]??[!_]*"))
+    files = list(data_folder.glob("[!a]???[!a]*"))
+    files.sort()
 
     for file in files:
-        species = file.name[:3]
+        species = file.name[:-6]
         species_dir = fimo_dir.joinpath(species)
         species_dir.mkdir(exist_ok=True)
 

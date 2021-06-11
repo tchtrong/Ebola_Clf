@@ -5,6 +5,8 @@ from pandas.core.frame import DataFrame
 from utils.common import get_folder, DIR
 from pathlib import Path
 import gc
+import numpy as np
+import re
 
 
 def read_fimo(path, n_seq, n_motifs, n_last_seqs, n_last_motifs) -> DataFrame:
@@ -14,35 +16,13 @@ def read_fimo(path, n_seq, n_motifs, n_last_seqs, n_last_motifs) -> DataFrame:
     sequences = data['sequence_name']
 
     motif_range = list(range(n_last_motifs, n_last_motifs + n_motifs))
-    seq_range = set(range(n_last_seqs, n_last_seqs + n_seq))
 
-    lst = []
-    last_motif = ""
+    a = np.zeros(shape=(n_motifs, n_seq), dtype=int)
+
     for idx, sequence in enumerate(sequences):
-
-        if sequence in seq_range:
-            seq_range.remove(sequence)
-
-        if last_motif != motifs[idx]:
-            lst.append({})
-            while len(lst) != int(motifs[idx][5:]):
-                lst.append({})
-            last_motif = motifs[idx]
-
-        if sequence not in lst[-1]:
-            lst[-1][sequence] = 1
-        else:
-            lst[-1][sequence] += 1
-
-    while len(lst) != n_motifs:
-        lst.append({})
-
-    lst = pd.DataFrame(lst, dtype=int, index=motif_range)
-
-    for i in seq_range:
-        lst[i] = pd.Series(dtype=float)
-
-    return lst
+        a[int(motifs[idx][5:]) - 1][sequence - n_last_seqs] += 1
+    
+    return pd.DataFrame(a, dtype=int, index=motif_range)
 
 
 def get_num_seq(species: Path, no_X: bool):
@@ -53,7 +33,12 @@ def get_num_seq(species: Path, no_X: bool):
 
 def get_num_motif(length: int, motifs_folder: Path):
     length_folder = motifs_folder.joinpath(str(length))
-    n_motifs = len(list(length_folder.glob("*.eps")))
+    n_motifs = 0
+    motif_regex_pattern = r'^\sMotif \w+ MEME-\d+ regular expression$'
+    with open(length_folder/"meme.txt", 'r') as file:
+        for line in file:
+            if re.search(motif_regex_pattern, line):
+                n_motifs += 1
     return n_motifs
 
 
@@ -86,6 +71,8 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
                 str(i))), n_seqs, n_motifs, n_last_seqs, n_last_motifs)
             freq_matrix.append(i_matrix)
             n_last_motifs += n_motifs
+            gc.collect()
+            print("Finished {} length {}".format(species, i))
 
         lst_matrices.append(pd.concat(freq_matrix).T.fillna(0))
         lst_matrices[-1].drop_duplicates(
@@ -95,7 +82,6 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
         n_last_seqs += n_seqs
         print(species, lst_matrices[-1].shape)
         gc.collect()
-        
 
     lst_matrices: pd.DataFrame = pd.concat(lst_matrices)
     print(lst_matrices.shape)
