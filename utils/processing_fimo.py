@@ -9,20 +9,21 @@ import numpy as np
 import re
 
 
-def read_fimo(path, n_seq, n_motifs, n_last_seqs, n_last_motifs) -> DataFrame:
+def read_fimo(path, n_seqs, n_motifs, n_last_seqs, n_last_motifs) -> DataFrame:
 
     data = pd.read_csv(path, sep='\t')
     motifs = data['motif_alt_id']
     sequences = data['sequence_name']
 
     motif_range = list(range(n_last_motifs, n_last_motifs + n_motifs))
+    seq_range = list(range(n_last_seqs, n_last_seqs + n_seqs))
 
-    a = np.zeros(shape=(n_motifs, n_seq), dtype=int)
+    a = np.zeros(shape=(n_motifs, n_seqs), dtype=np.int8)
 
     for idx, sequence in enumerate(sequences):
         a[int(motifs[idx][5:]) - 1][sequence - n_last_seqs] += 1
-    
-    return pd.DataFrame(a, dtype=int, index=motif_range)
+
+    return pd.DataFrame(a, dtype=int, index=motif_range, columns=seq_range)
 
 
 def get_num_seq(species: Path, no_X: bool):
@@ -88,6 +89,7 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
 
     lst_matrices.drop_duplicates(
         subset=lst_matrices.columns[:-1], keep=False, inplace=True)
+    lst_matrices.to_csv(csv_folder/'all.csv')
 
     print("After remove duplicate vectors:")
 

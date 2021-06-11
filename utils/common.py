@@ -1,6 +1,7 @@
 from pathlib import Path
 import shutil
 from enum import Enum, unique
+import pandas as pd
 
 
 @unique
@@ -73,3 +74,8 @@ def get_file(file_type: FILE, ext: EXT = EXT.NONE, no_X: bool = True,
         file_name += str(ith_comp)
 
     return file_name
+
+
+def get_dataset(no_X: bool = True, fimo: bool = False):
+    csv_folder = get_folder(dir_type=DIR.CSV, no_X=no_X, fimo=fimo)
+    return pd.read_csv(csv_folder/'all.csv', index_col=0)

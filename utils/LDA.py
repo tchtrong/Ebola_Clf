@@ -1,14 +1,14 @@
 from sklearn.decomposition import LatentDirichletAllocation as lda
-from utils.spliting_train_test import get_train_test_set
+from utils.processing_train_test import get_matrices
 from joblib import dump
 import pandas as pd
 import gc
-from utils.common import get_folder, get_file, DIR, FILE
+from utils.common import SCLALER, get_folder, get_file, DIR, FILE
 
 
 def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             doc_topic_prior=None, topic_word_prior=None,
-            learning_method='batch', learning_decay=0.7, learning_offset=10.0, max_iter=10,
+            learning_method='batch', learning_decay=0.7, learning_offset=10.0, max_iter=1,
             batch_size=128, evaluate_every=-1, total_samples=1000000.0,
             perp_tol=0.1, mean_change_tol=0.001,
             max_doc_update_iter=100,
@@ -16,7 +16,8 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             verbose=0,
             random_state=43):
 
-    X_train, X_test, _, _ = get_train_test_set(no_X=no_X, fimo=fimo)
+    X_train, X_test = get_matrices(
+        no_X=no_X, fimo=fimo, dir_type=DIR.SVM_TRAIN_TEST, scaler=SCLALER.NONE)
     model_folder = get_folder(dir_type=DIR.LDA_MODEL, no_X=no_X, fimo=fimo)
 
     for i in dimens:
@@ -37,5 +38,4 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             lda_model.fit(pd.concat([X_train, X_test]))
             dump(lda_model, model_folder/'LDA_train_test_{}'.format(i))
         print("Finised component {}".format(i))
-        del lda_model
         gc.collect()
