@@ -2,7 +2,7 @@
 motifs_backup/**/*.eps
 __pycache__
 .vscode
-test*
+/test*
 bom.gb
 4_processing_motifs_old.py
 organism_list

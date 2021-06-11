@@ -1,42 +1,55 @@
-from sklearn import svm
-from utils.spliting_train_test import get_train_test_set
 from pathlib import Path
 import pandas as pd
-from sklearn import preprocessing
-from utils.common import get_folder, DIR, get_file, FILE, EXT
+from utils.common import SCLALER, get_folder, DIR, get_file, FILE, EXT
+from utils.processing_train_test import get_matrices, get_labels
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
+from sklearn.metrics import classification_report
+from sklearn.svm import SVC
 
 
 def run_SVM(no_X: bool, fimo: bool):
-    result_folder = Path("results")
-    result_folder.mkdir(exist_ok=True)
 
-    file_result = get_file(
-        file_type=FILE.SVM, ext=EXT.CSV, no_X=no_X, fimo=fimo)
+    X_train, X_test = get_matrices(
+        dir_type=DIR.SVM_TRAIN_TEST, scaler=SCLALER.NONE, no_X=no_X, fimo=fimo)
 
-    lst = get_train_test_set(no_X=no_X, fimo=fimo)
+    y_train, y_test = get_labels(no_X=no_X, fimo=fimo)
 
-    # for idx in range(2):
-    #     x = lst[idx].values  # returns a numpy array
-    #     min_max_scaler = preprocessing.MinMaxScaler()
-    #     x_scaled = min_max_scaler.fit_transform(x)
-    #     lst[idx] = pd.DataFrame(x_scaled)
+    # Set the parameters by cross-validation
+    tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-3, 1e-4],
+                         'C': [1, 10, 100, 1000]},
+                        {'kernel': ['linear'], 'C': [1, 10, 100, 1000]}]
 
-    X_train, X_test, y_train, y_test = lst
+    scores = ['recall']
 
-    kernels = ['linear', 'rbf', 'poly', 'sigmoid']
-    gammas = ['scale', 'auto', 0.1, 1.0, 1.0, 10.0]
-    Cs = [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
+    for score in scores:
+        print("# Tuning hyper-parameters for %s" % score)
+        print()
+        clf = GridSearchCV(
+            SVC(), tuned_parameters, cv=1
+        )
+        clf.fit(X_train, y_train.values.ravel())
 
-    results = []
-    for kernel in kernels:
-        for Cs_ in Cs:
-            for gamma_ in gammas:
-                clf = svm.SVC(kernel=kernel, C=Cs_, gamma=gamma_,
-                              class_weight='balanced')
-                clf.fit(X_train, y_train.values.ravel())
-                score = clf.score(X_test, y_test.values.ravel())
-                results.append({'Kernel': kernel, "C": Cs_,
-                               "Gamma": gamma_, "Result": score})
-                if kernel == 'linear':
-                    break
-    pd.DataFrame(results).to_csv(result_folder/file_result, index=True)
+        print("Best parameters set found on development set:")
+        print()
+        print(clf.best_params_)
+        print()
+        print("Grid scores on development set:")
+        print()
+        means = clf.cv_results_['mean_test_score']
+        stds = clf.cv_results_['std_test_score']
+        print(clf.cv_results_)
+        for mean, std, params in zip(means, stds, clf.cv_results_['params']):
+            print("%0.3f (+/-%0.03f) for %r"
+                  % (mean, std * 2, params))
+        print()
+
+        print("Detailed classification report:")
+        print()
+        print("The model is trained on the full development set.")
+        print("The scores are computed on the full evaluation set.")
+        print()
+        y_true, y_pred = y_test, clf.predict(X_test)
+        print(classification_report(y_true, y_pred))
+        print()
