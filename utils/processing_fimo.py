@@ -89,7 +89,6 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
 
     lst_matrices.drop_duplicates(
         subset=lst_matrices.columns[:-1], keep=False, inplace=True)
-    lst_matrices.to_csv(csv_folder/'all.csv')
 
     print("After remove duplicate vectors:")
 

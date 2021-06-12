@@ -18,6 +18,10 @@ class DIR(Enum):
     LDA_RESULTS = "LDA_results"
 
 
+class MODEL(Enum):
+    LDA = "LDA"
+
+
 class FILE(Enum):
     SVM = "SVM"
     LDA_MODEL = "LDA"
@@ -54,28 +58,8 @@ def get_folder(dir_type: DIR, no_X: bool,
     return folder
 
 
-def get_file(file_type: FILE, ext: EXT = EXT.NONE, no_X: bool = True,
-             fimo: bool = False, ith_comp: int = 0, use_test: bool = False) -> str:
-
-    file_name = ''
-    if not file_type is FILE.LDA_MODEL:
-        file_name = file_type.value
-        if fimo:
-            file_name += "_fimo"
-        if no_X:
-            file_name += "_no_X"
-        file_name += ext.value
-    else:
-        file_name = 'LDA'
-        if use_test:
-            file_name += "_train_test"
-        else:
-            file_name += "_train_only"
-        file_name += str(ith_comp)
-
-    return file_name
-
-
-def get_dataset(no_X: bool = True, fimo: bool = False):
-    csv_folder = get_folder(dir_type=DIR.CSV, no_X=no_X, fimo=fimo)
-    return pd.read_csv(csv_folder/'all.csv', index_col=0)
+def get_model(model_type: MODEL, n_comps: int, no_X: bool, fimo: bool):
+    model_folder = None
+    if model_type == MODEL.LDA:
+        model_folder = get_folder(dir_type=DIR.LDA_MODEL, no_X=no_X, fimo=fimo)
+        return model_folder/'LDA_train_only_{}'.format(n_comps)

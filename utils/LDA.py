@@ -3,10 +3,10 @@ from utils.processing_train_test import get_matrices
 from joblib import dump
 import pandas as pd
 import gc
-from utils.common import SCLALER, get_folder, get_file, DIR, FILE
+from utils.common import SCLALER, get_folder, DIR
 
 
-def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
+def run_LDA(no_X: bool, fimo: bool, dimens: range,
             doc_topic_prior=None, topic_word_prior=None,
             learning_method='batch', learning_decay=0.7, learning_offset=10.0, max_iter=1,
             batch_size=128, evaluate_every=-1, total_samples=1000000.0,
@@ -16,7 +16,7 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             verbose=0,
             random_state=43):
 
-    X_train, X_test = get_matrices(
+    X_train, _ = get_matrices(
         no_X=no_X, fimo=fimo, dir_type=DIR.SVM_TRAIN_TEST, scaler=SCLALER.NONE)
     model_folder = get_folder(dir_type=DIR.LDA_MODEL, no_X=no_X, fimo=fimo)
 
@@ -31,11 +31,7 @@ def run_LDA(no_X: bool, fimo: bool, dimens: range, use_test: bool = False,
             max_doc_update_iter=max_doc_update_iter,
             verbose=verbose,
             random_state=random_state)
-        if not use_test:
-            lda_model.fit(X_train)
-            dump(lda_model, model_folder/'LDA_train_only_{}'.format(i))
-        else:
-            lda_model.fit(pd.concat([X_train, X_test]))
-            dump(lda_model, model_folder/'LDA_train_test_{}'.format(i))
+        lda_model.fit(X_train)
+        dump(lda_model, model_folder/'LDA_train_only_{}'.format(i))
         print("Finised component {}".format(i))
         gc.collect()

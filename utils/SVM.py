@@ -1,4 +1,5 @@
-from utils.common import SCLALER, DIR, get_dataset
+from pathlib import Path
+from utils.common import SCLALER, DIR, get_folder
 from utils.processing_train_test import get_matrices, get_labels
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
@@ -8,28 +9,85 @@ import numpy as np
 import pandas as pd
 
 
-def run_SVM(no_X: bool, fimo: bool):
+def create_result_folder(dir_type: DIR, no_X: bool, fimo: bool, recreate: bool = False):
+    result_folder = get_folder(
+        dir_type=dir_type, no_X=no_X, fimo=fimo, recreate=recreate)
+    for scaler in SCLALER:
+        result_folder.joinpath(scaler.value).mkdir(exist_ok=True)
 
-    X_train, X_test = get_matrices(
-        dir_type=DIR.SVM_TRAIN_TEST, scaler=SCLALER.NONE, no_X=no_X, fimo=fimo)
+
+def get_param_grid(kernel: str):
+    if kernel == 'linear':
+        C_range = np.logspace(start=-3, stop=1, num=5, base=10)
+        param_grid = dict(C=C_range)
+        return param_grid
+    elif kernel == 'rbf':
+        C_range = np.logspace(start=-3, stop=9, num=13, base=10)
+        gamma_range = np.logspace(start=-9, stop=3, num=13, base=10)
+        param_grid = dict(gamma=gamma_range, C=C_range)
+        return param_grid
+
+
+def run_SVM_only(no_X: bool, fimo: bool, kernel: str):
+
+    create_result_folder(DIR.SVM_RESULTS, no_X=no_X, fimo=fimo, recreate=True)
+    result_folder = get_folder(DIR.SVM_RESULTS, no_X=no_X, fimo=fimo)
 
     y_train, y_test = get_labels(no_X=no_X, fimo=fimo)
+    y = pd.concat([y_train, y_test]).values.ravel()
 
-    dataset = get_dataset(no_X=no_X, fimo=fimo)
-    X = dataset.drop('Label', axis=1)
-    y = dataset['Label']
+    for scaler_type in SCLALER:
+        X_train, X_test = get_matrices(
+            dir_type=DIR.SVM_TRAIN_TEST, scaler=scaler_type, no_X=no_X, fimo=fimo)
+        X = pd.concat([X_train, X_test])
+        Path(result_folder/scaler_type.value).joinpath(kernel).mkdir(exist_ok=True)
+        param_grid = get_param_grid(kernel)
 
-    X = pd.concat([X_train, X_test]).sort_index()
-    y = pd.concat([y_train, y_test]).sort_index().values.ravel()
+        cv = StratifiedKFold(n_splits=3)
+        grid = GridSearchCV(SVC(), param_grid=param_grid, cv=cv, n_jobs=-1)
+        grid.fit(X, y)
 
-    C_range = np.logspace(-2, 10, 13)
-    gamma_range = np.logspace(-9, 3, 13)
-    kernels = ['rbf', 'linear']
-    param_grid = dict(gamma=gamma_range, C=C_range, kernel=kernels)
-    cv = StratifiedKFold(n_splits=3)
-    grid = GridSearchCV(SVC(), param_grid=param_grid, cv=cv, n_jobs=-1)
-    grid.fit(X, y)
-    # scores = grid.cv_results_['mean_test_score'].reshape(len(C_range),
-    #                                                      len(gamma_range))
+        scores = grid.cv_results_['mean_test_score'].reshape(
+            len(param_grid['C']), len(param_grid['gamma']))
+        scores = pd.DataFrame(
+            scores, index=param_grid['C'], columns=param_grid['gamma'])
+        scores.to_csv(result_folder/scaler_type.value /
+                      kernel/'mean_test_score.csv')
 
-    print(grid.best_params_, grid.best_score_)
+        with open(result_folder/scaler_type.value/kernel/'best_score_best_params.txt', 'w') as file:
+            file.write('{}\t\t\t{}'.format(
+                grid.best_params_, grid.best_score_))
+
+
+def run_SVM_LDA(no_X: bool, fimo: bool, topic_range: range):
+
+    create_result_folder(DIR.LDA_RESULTS, no_X=no_X, fimo=fimo)
+    result_folder = get_folder(DIR.LDA_RESULTS, no_X=no_X, fimo=fimo)
+
+    y_train, y_test = get_labels(no_X=no_X, fimo=fimo)
+    y = pd.concat([y_train, y_test]).values.ravel()
+
+    for scaler_type in SCLALER:
+        Path(result_folder/scaler_type.value).joinpath('rbf').mkdir(exist_ok=True)
+        result_to_print = ''
+        for i in topic_range:
+            X_train, X_test = get_matrices(
+                dir_type=DIR.LDA_TRAIN_TEST, scaler=scaler_type, no_X=no_X, fimo=fimo, n_comp=i)
+            X = pd.concat([X_train, X_test])
+            C_range = np.logspace(start=-3, stop=9, num=13, base=10)
+            gamma_range = np.logspace(start=-9, stop=3, num=13, base=10)
+            param_grid = dict(gamma=gamma_range, C=C_range)
+
+            cv = StratifiedKFold(n_splits=3)
+            grid = GridSearchCV(SVC(), param_grid=param_grid, cv=cv, n_jobs=-1)
+            grid.fit(X, y)
+
+            scores = grid.cv_results_['mean_test_score'].reshape(
+                len(C_range), len(gamma_range))
+            scores = pd.DataFrame(scores, index=C_range, columns=gamma_range)
+            scores.to_csv(result_folder/scaler_type.value /
+                          'rbf'/'mean_test_score_{}.csv'.format(i))
+            result_to_print += str(i) + '\t' + str(grid.best_params_) + \
+                '\t' + str(grid.best_score_) + '\n'
+        with open(result_folder/scaler_type.value/'rbf'/'best_score_best_params.txt', 'a') as file:
+            file.write(result_to_print)

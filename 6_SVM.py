@@ -1,5 +1,5 @@
 # %%
-from utils.SVM import run_SVM
+from utils.SVM import run_SVM_only
 
 # %%
-run_SVM(no_X=True, fimo=True)
+run_SVM_only(no_X=True, fimo=True, kernel='rbf')
