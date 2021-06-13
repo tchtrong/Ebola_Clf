@@ -63,7 +63,7 @@ def run_SVM_only(no_X: bool, fimo: bool, kernel: str):
                       kernel/'mean_test_score.csv')
 
         with open(result_folder/scaler_type.value/kernel/'best_score_best_params.txt', 'w') as file:
-            file.write('{}\t\t\t{}'.format(
+            file.write('{}\t{}'.format(
                 grid.best_params_, grid.best_score_))
 
 
