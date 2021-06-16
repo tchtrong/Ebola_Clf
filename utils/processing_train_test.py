@@ -37,7 +37,7 @@ def get_scaler(scaler: SCLALER):
 
 def spliting_train_test(no_X: bool, fimo: bool, test_size: float = 0.4, random_state=123):
     csv_folder = get_folder(DIR.CSV, no_X=no_X, fimo=fimo)
-    list_csv = list(csv_folder.glob("*.csv"))
+    list_csv = list(csv_folder.glob("[!a]*.csv"))
     list_csv.sort()
 
     lst = [[], [], [], []]

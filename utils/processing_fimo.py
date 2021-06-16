@@ -73,7 +73,6 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
             freq_matrix.append(i_matrix)
             n_last_motifs += n_motifs
             gc.collect()
-            print("Finished {} length {}".format(species, i))
 
         lst_matrices.append(pd.concat(freq_matrix).T.fillna(0))
         lst_matrices[-1].drop_duplicates(
@@ -89,6 +88,7 @@ def processing_motifs_fimo(no_X: bool, length_range: range):
 
     lst_matrices.drop_duplicates(
         subset=lst_matrices.columns[:-1], keep=False, inplace=True)
+    lst_matrices.to_csv(csv_folder/'all.csv')
 
     print("After remove duplicate vectors:")
 
