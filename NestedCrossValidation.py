@@ -16,10 +16,11 @@ from sklearn.base import TransformerMixin, BaseEstimator
 import time
 
 
+random_state = 283258281
 class ReduceDimLDA(TransformerMixin, BaseEstimator):
     def __init__(self, n_components: int = 100, n_top_words: int = 5):
         self.n_components = n_components
-        self.model = LDA(n_components=self.n_components)
+        self.model = LDA(n_components=self.n_components, random_state=random_state)
         self.n_top_words = n_top_words
         self.top_words = 0
         self.list_words = set()
@@ -52,7 +53,6 @@ csv_folder = get_folder(dir_type=DIR.CSV, no_X=True, fimo=True)
 dataset = pd.read_csv(csv_folder/'all.csv', index_col=0)
 X = dataset.drop('Label', axis=1)
 y = dataset['Label']
-random_state = 283258281
 
 # %%
 """
@@ -71,7 +71,7 @@ pipe = Pipeline([
     ('classify', SVC()),
 ], memory=memory)
 
-N_COMPONENTS = list(range(10, 210, 10))
+N_COMPONENTS = list(range(50, 110, 10))
 N_TOP_WORDS = list(range(1, 11, 1))
 C_OPTIONS = np.logspace(start=0, stop=0, num=1)
 GAMMA_OPTIONS = np.logspace(start=-3, stop=-3, num=1)
@@ -109,7 +109,8 @@ clf = GridSearchCV(estimator=pipe, param_grid=param_grid,
 
 with parallel_backend('threading', n_jobs=4):
     clf.fit(X, y)
-dump(clf, sol4/'clf_LDA_10.210.10_1.11.1_k3r10.bin')
+dump(clf, sol4/'clf_LDA_50.110.10_1.11.1_k3r10.bin')
+pd.DataFrame(clf.cv_results_).to_csv(sol4/'clf_LDA_50.110.10_1.11.1_k3r10.csv')
 
 
 # Step 5: Run nested cross-validation
