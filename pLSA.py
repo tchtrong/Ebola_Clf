@@ -2,11 +2,9 @@
 
 from utils.common import DIR, get_folder
 import numpy as np
-from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold, cross_validate, StratifiedKFold
+from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold, cross_validate
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler
 from sklearn.svm import SVC
-from sklearn.decomposition import LatentDirichletAllocation as LDA
 from joblib import Memory
 from shutil import rmtree
 import pandas as pd
@@ -14,14 +12,15 @@ from pathlib import Path
 from joblib import dump, parallel_backend, load
 from sklearn.base import TransformerMixin, BaseEstimator
 import time
+from utils.plsa import PLSA
 
 
-class ReduceDimLDA(TransformerMixin, BaseEstimator):
+class ReduceDimPLSA(TransformerMixin, BaseEstimator):
     def __init__(self, n_components: int = 100, n_top_words: int = 5, random_state=283258281):
         self.n_components = n_components
         self.random_state = random_state
-        self.model = LDA(n_components=self.n_components,
-                         random_state=self.random_state)
+        self.model = PLSA(n_components=self.n_components,
+                          random_state=self.random_state)
         self.n_top_words = n_top_words
         self.top_words = 0
         self.list_words = set()
@@ -90,7 +89,7 @@ param_grid = [
     #     'classify__kernel': KERNEL_OPTIONS,
     # },
     {
-        'reduce_dim': [ReduceDimLDA()],
+        'reduce_dim': [ReduceDimPLSA()],
         'reduce_dim__n_components': N_COMPONENTS,
         'reduce_dim__n_top_words': N_TOP_WORDS,
         'classify__C': C_OPTIONS,
@@ -111,8 +110,9 @@ clf = GridSearchCV(estimator=pipe, param_grid=param_grid,
 
 with parallel_backend('threading', n_jobs=4):
     clf.fit(X, y)
-dump(clf, sol4/'clf_LDA_50.110.10_1.11.1_k3r10.bin')
-pd.DataFrame(clf.cv_results_).to_csv(sol4/'clf_LDA_50.110.10_1.11.1_k3r10.csv')
+dump(clf, sol4/'clf_pLSA_50.110.10_1.11.1_k3r10.bin')
+pd.DataFrame(clf.cv_results_).to_csv(
+    sol4/'clf_pLSA_50.110.10_1.11.1_k3r10.csv')
 
 
 # Step 5: Run nested cross-validation
