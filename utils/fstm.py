@@ -15,6 +15,7 @@ class FSTM(BaseEstimator, TransformerMixin):
     def __init__(self, n_components=10, topic_sparsity=0.1, warm_start=True,
                  em_max_iter=100, em_converge=1e-4,
                  inf_max_iter=100, inf_converge=1e-6,
+                 alpha_max_iter=20,
                  random_state=None) -> None:
         self.n_components = n_components
         self.random_state = random_state
@@ -24,6 +25,7 @@ class FSTM(BaseEstimator, TransformerMixin):
         self.em_convergence = em_converge
         self.inf_max_iter = inf_max_iter
         self.inf_converge = inf_converge
+        self.alpha_max_iter = alpha_max_iter
 
     def _check_params(self):
         """Check model parameters."""
@@ -180,7 +182,7 @@ class FSTM(BaseEstimator, TransformerMixin):
             grad = self._grad_f(document, x)
             i = grad.dot(beta.transpose()).argmax()
             alpha = minimize_scalar(
-                self._f_alpha, bounds=(0, 1), args=(document, x, beta[i]), method='bounded', options={'maxiter': 20})
+                self._f_alpha, bounds=(0, 1), args=(document, x, beta[i]), method='bounded', options={'maxiter': self.alpha_max_iter})
             x = alpha.x * beta[i] + (1 - alpha.x) * x
             theta *= (1 - alpha.x)
             theta[i] += alpha.x
