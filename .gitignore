@@ -15,3 +15,7 @@ LDA_m*
 LDA_t*
 cachedir*
 sol*
+*.so
+utils/*.html
+utils/*.c
+build
