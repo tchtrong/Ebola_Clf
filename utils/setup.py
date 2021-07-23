@@ -3,9 +3,9 @@ from Cython.Build import cythonize
 import numpy
 
 extensions = [
-    Extension("fast_fstm", ["fast_fstm.pyx"],
+    Extension("fast_fstm", ["utils/fast_fstm.pyx"],
               include_dirs=[numpy.get_include()],
-              extra_compile_args = ["-ffast-math", '-mavx']),
+              extra_compile_args = ["-ffast-math", '-mavx', '-O3']),
 ]
 
 setup(

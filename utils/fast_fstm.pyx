@@ -31,7 +31,7 @@ cdef extern from "immintrin.h" nogil:
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef inline double dot_1d(double[:] a, double[:] b):
+cdef inline double dot_1d(double[:] a, double[:] b) nogil:
     cdef int N = a.shape[0]
     cdef int incr = 1
     return blas.ddot(&N, &a[0], &incr, &b[0], &incr)
@@ -39,7 +39,7 @@ cdef inline double dot_1d(double[:] a, double[:] b):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef void matvec(double[:, :] A, double[:] x, double[:] y):
+cdef void matvec(double[:, :] A, double[:] x, double[:] y) nogil:
     cdef int N = A.shape[0]
     cdef int D = A.shape[1]
     cdef int n
@@ -93,7 +93,7 @@ cdef double f_1d(double[:] document, double[:] x, int n_features) nogil:
 @cython.wraparound(False)
 @cython.cdivision(True)
 @cython.nonecheck(False)
-cdef void grad_f(double[:] document, double[:] x, double[:] grad, int n_features):
+cdef void grad_f(double[:] document, double[:] x, double[:] grad, int n_features) nogil:
     cdef:
         __m256d zero, m_nz, x_, d_
     zero = _mm256_set1_pd(0)
@@ -142,7 +142,7 @@ cdef void grad_f(double[:] document, double[:] x, double[:] grad, int n_features
 cdef double alpha_gradient_search(int alpha_max_iter, int n_features,
                                   double[:] document,
                                   double[:] beta, double[:] x,
-                                  double[:] nfv):
+                                  double[:] nfv) nogil:
     cdef double left = 0
     cdef double right = 1
     cdef double fa = 0
@@ -173,7 +173,7 @@ cdef double alpha_gradient_search(int alpha_max_iter, int n_features,
 @cython.wraparound(False)
 @cython.nonecheck(False)
 cdef int argmax(double[:] grad_f, double[:, :] beta, double[:] ncv,
-                int n_components):
+                int n_components) nogil:
     matvec(beta, grad_f, ncv)
     cdef int x = 0
     cdef double max = ncv[0]
@@ -206,22 +206,23 @@ def e_step(int inf_max_iter, double inf_converge, int alpha_max_iter,
     cdef int inf_iter
     cdef int x_iter
 
-    for inf_iter in range(inf_max_iter):
-        grad_f(document, x, nfv, n_features)
-        i = argmax(nfv, beta, ncv, n_components)
-        alpha = alpha_gradient_search(alpha_max_iter, n_features, document, beta[i], x, nfv)
-        if alpha == 0:
-            break
-        for x_iter in range(n_features):
-            x[x_iter] = alpha * beta[i, x_iter] + (1 - alpha) * x[x_iter]
-        for x_iter in range(n_components):
-            theta[x_iter] *= (1 - alpha)
-        theta[i] += alpha
-        likelihood = f_1d(document, x, n_features)
-        if inf_iter > 0:
-            converge = (likelihood_old - likelihood) / likelihood_old
-        likelihood_old = likelihood
-        if converge > 0 and converge < inf_converge:
-            break
+    with nogil:
+        for inf_iter in range(inf_max_iter):
+            grad_f(document, x, nfv, n_features)
+            i = argmax(nfv, beta, ncv, n_components)
+            alpha = alpha_gradient_search(alpha_max_iter, n_features, document, beta[i], x, nfv)
+            if alpha == 0:
+                break
+            for x_iter in range(n_features):
+                x[x_iter] = alpha * beta[i, x_iter] + (1 - alpha) * x[x_iter]
+            for x_iter in range(n_components):
+                theta[x_iter] *= (1 - alpha)
+            theta[i] += alpha
+            likelihood = f_1d(document, x, n_features)
+            if inf_iter > 0:
+                converge = (likelihood_old - likelihood) / likelihood_old
+            likelihood_old = likelihood
+            if converge > 0 and converge < inf_converge:
+                break
 
     return likelihood_old
