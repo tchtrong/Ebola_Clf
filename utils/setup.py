@@ -4,8 +4,7 @@ import numpy
 
 extensions = [
     Extension("fast_fstm", ["utils/fast_fstm.pyx"],
-              include_dirs=[numpy.get_include()],
-              extra_compile_args = ["-ffast-math", '-mavx', '-O3']),
+              extra_compile_args = ["-ffast-math", '-mavx', '-O3'],),
 ]
 
 setup(

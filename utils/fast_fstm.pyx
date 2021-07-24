@@ -1,5 +1,3 @@
-# cython: profile=True
-
 cimport cython
 # from cython.parallel import prange
 from libc.math cimport log as clog
@@ -208,20 +206,28 @@ def e_step(int inf_max_iter, double inf_converge, int alpha_max_iter,
 
     with nogil:
         for inf_iter in range(inf_max_iter):
+
             grad_f(document, x, nfv, n_features)
             i = argmax(nfv, beta, ncv, n_components)
+
             alpha = alpha_gradient_search(alpha_max_iter, n_features, document, beta[i], x, nfv)
             if alpha == 0:
                 break
+
             for x_iter in range(n_features):
                 x[x_iter] = alpha * beta[i, x_iter] + (1 - alpha) * x[x_iter]
+
             for x_iter in range(n_components):
                 theta[x_iter] *= (1 - alpha)
             theta[i] += alpha
+
             likelihood = f_1d(document, x, n_features)
+
             if inf_iter > 0:
                 converge = (likelihood_old - likelihood) / likelihood_old
+
             likelihood_old = likelihood
+
             if converge > 0 and converge < inf_converge:
                 break
 

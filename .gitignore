@@ -19,3 +19,5 @@ sol*
 utils/*.html
 utils/*.c
 build
+*_model
+*_result

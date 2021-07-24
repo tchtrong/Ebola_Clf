@@ -13,8 +13,9 @@ EPS = np.finfo(float).eps
 
 
 class FSTM(BaseEstimator, TransformerMixin):
+    
     def __init__(self, n_components=10, topic_sparsity=0.1, warm_start=True,
-                 em_max_iter=100, em_converge=1e-4,
+                 em_max_iter=10, em_converge=1e-4,
                  inf_max_iter=100, inf_converge=1e-6,
                  alpha_max_iter=20,
                  random_state=None) -> None:
@@ -40,9 +41,6 @@ class FSTM(BaseEstimator, TransformerMixin):
     def _init_latent_vars(self, n_features):
         self.random_state_ = check_random_state(self.random_state)
 
-        # Self component as sparse matrix
-        # presents topic-word distribution matrix
-        # This is equivalent to B in literature
         self.components_: np.ndarray = sparse.random(
             self.n_components, n_features, density=0.1, random_state=self.random_state_, dtype=np.float64)
 
@@ -67,7 +65,7 @@ class FSTM(BaseEstimator, TransformerMixin):
         doc_topic_distr = np.zeros(
             shape=(n_samples, n_components), dtype=np.float64)
         ncv = np.zeros(n_components, dtype=np.float64)
-        nfv = np.zeros(n_samples, dtype=np.float64)
+        nfv = np.zeros(n_features, dtype=np.float64)
 
         converge = 1.0
         likelihood_old = 1.0
@@ -85,11 +83,6 @@ class FSTM(BaseEstimator, TransformerMixin):
                 log_x_j[nz] = np.log(log_x_j[nz])
 
             for ind_d in range(n_samples):
-                # Calculate f(x) = Sigma(d_j * log(x_j))
-                # j = ind_d
-                # x_j = theta_j * B
-                # At first run we don't have theta (all is zero), therefore we have to divide
-                # the problem to 2 cases
                 if em_iter > 0 and self.warm_start:
                     fx: np.ndarray = self._f(
                         X[ind_d], doc_topic_distr[ind_d][:, np.newaxis] * (self.components_))
@@ -107,17 +100,15 @@ class FSTM(BaseEstimator, TransformerMixin):
 
             # M-step
             normalize(doc_topic_distr, norm='l1', copy=False, axis=0)
+
             self.components_ = doc_topic_distr.transpose().dot(X)
+
             normalize(self.components_, norm='l1', copy=False)
 
-            if em_iter > 0:
-                converge = (likelihood_old - likelihood) / (likelihood_old)
+            converge = (likelihood_old - likelihood) / (likelihood_old)
             likelihood_old = likelihood
 
-            if converge < -0.001:
-                converge = 1.0
-
-            if converge < self.em_convergence:
+            if abs(converge) < self.em_convergence:
                 break
 
         return doc_topic_distr

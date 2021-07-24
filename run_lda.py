@@ -9,6 +9,7 @@ from joblib import dump
 from sklearn.decomposition import LatentDirichletAllocation as LDA
 from sklearn.decomposition import TruncatedSVD as LSA
 from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 from utils.common import DIR, get_folder
@@ -22,8 +23,8 @@ def get_n_top_words(model, n_top_words):
     for topic in model.components_:
         top_features_ind = topic.argsort()[:-n_top_words - 1:-1]
         for i in top_features_ind:
-            words.add(str(feature_names[i]))
-    return words
+            words.add(feature_names[i])
+    return list(words)
 
 
 def update_result(fit_time: np.ndarray, score_time: np.ndarray, n_components: int, total_runs: int, C: int, gamma: int, results: pd.DataFrame, row_ind: int,
@@ -48,12 +49,17 @@ def run_SVM(total_runs, train_test_sets, C, gamma, n_components, results, row_in
     fit_time = np.zeros(total_runs)
     score_time = np.zeros(total_runs)
 
+    scaler = StandardScaler()
+
     for idx_tts, (X_train_new, X_test_new, y_train, y_test) in enumerate(train_test_sets):
 
         if is_linear:
-            clf = SVC(kernel='linear', C=C, gamma=gamma)
+            clf = SVC(kernel='linear', C=C, gamma=gamma, max_iter=10000000)
         else:
             clf = SVC(C=C, gamma=gamma)
+
+        # X_train_new = scaler.fit_transform(X_train_new)
+        # X_test_new = scaler.transform(X_test_new)
 
         start = time()
         clf.fit(X_train_new, y_train)
@@ -87,7 +93,7 @@ random_state = 283258281
 Train test set preparation
 '''
 n_splits = 3
-n_repeats = 2
+n_repeats = 3
 rskf = RepeatedStratifiedKFold(
     n_splits=n_splits, n_repeats=n_repeats, random_state=random_state)
 
@@ -95,10 +101,15 @@ rskf = RepeatedStratifiedKFold(
 """
 Params preparation
 """
-C_OPTIONS = np.logspace(-7, 15, 23, base=2)
-GAMMA_OPTIONS = np.logspace(-15, 7, 23, base=2)
-N_COMPONENTS = [5, 10, 20, 50, 100, 200, 400, 800, 1500]
+C_OPTIONS = np.logspace(-7, 7, 15, base=2)
+GAMMA_OPTIONS = np.logspace(-11, 3, 15, base=2)
+N_COMPONENTS = [25, 35, 50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500]
 N_TOP_WORDS = [3, 5, 7, 10]
+
+# C_OPTIONS = np.logspace(-7, 11, 2, base=2)
+# GAMMA_OPTIONS = np.logspace(-12, 6, 2, base=2)
+# N_COMPONENTS = [5]
+# N_TOP_WORDS = [3]
 
 # %%
 '''
@@ -110,16 +121,16 @@ split_test_scores = [
     'split{}_test_score'.format(i) for i in range(total_runs)
 ]
 
-split_motifs = [
-    'split{}_motifs'.format(i) for i in range(total_runs)
-]
+# split_motifs = [
+#     'split{}_motifs'.format(i) for i in range(total_runs)
+# ]
 
 
 labels_results = ['mean_fit_time'] + ['std_fit_time'] + ['mean_score_time'] + ['std_score_time'] +\
     ['n_components', 'n_top_motifs', 'C', 'gamma'] + \
     split_test_scores + ['mean_test_score'] + ['std_test_score']
 
-labels_top_motifs = ['n_components', 'n_top_motifs'] + split_motifs
+# labels_top_motifs = ['n_components', 'n_top_motifs'] + split_motifs
 
 labels_model_timming = ['n_components', 'mean_fit_time', 'std_fit_time',
                         'mean_trans_train_time', 'std_trans_train_time', 'mean_trans_test_time', 'std_trans_test_time']
@@ -132,18 +143,24 @@ n_rows_top_motifs = len(N_COMPONENTS) * len(N_TOP_WORDS)
 n_rows_timming = len(N_COMPONENTS)
 
 results = np.zeros(shape=(n_rows_results, len(labels_results)))
-top_motifs = np.zeros(shape=(n_rows_top_motifs, len(labels_top_motifs)))
+results_linear = np.zeros(
+    shape=(int(n_rows_results / len(GAMMA_OPTIONS)), len(labels_results)))
+# top_motifs = np.zeros(shape=(n_rows_top_motifs, len(labels_top_motifs)))
 timming = np.zeros(shape=(n_rows_timming, len(labels_model_timming)))
 
 results = pd.DataFrame(results, columns=labels_results)
-top_motifs = pd.DataFrame(top_motifs, columns=labels_top_motifs, dtype=object)
+results_linear = pd.DataFrame(results_linear, columns=labels_results)
+# top_motifs = pd.DataFrame(top_motifs, columns=labels_top_motifs, dtype=object)
 timming = pd.DataFrame(timming, columns=labels_model_timming)
 
 # %%
 '''
 Run models
 '''
+lda_p = Path('lda_model')
+lda_p.mkdir(exist_ok=True)
 row_ind = 0
+row_ind_linear = 0
 for idx_n, n_components in enumerate(N_COMPONENTS):
 
     train_test_sets = [0] * total_runs
@@ -157,16 +174,18 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
     for idx, (train_index, test_index) in enumerate(rskf.split(X, y)):
         X_train, X_test = X.iloc[train_index], X.iloc[test_index]
         y_train, y_test = y.iloc[train_index], y.iloc[test_index]
-        
+
         X_train = np.require(X_train, requirements='C')
         X_test = np.require(X_test, requirements='C')
 
-        model = FSTM(n_components=n_components,
-                     random_state=random_state)
+        model = LDA(n_components=n_components,
+                    random_state=random_state)
 
         start = time()
         model.fit(X_train)
         fit_time[idx] = time() - start
+
+        dump(model, lda_p/"lda_{}_{}".format(n_components, idx))
 
         start = time()
         X_train_new = model.transform(X_train)
@@ -181,15 +200,15 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
         for idx_tw, n in enumerate(N_TOP_WORDS):
             top_words = get_n_top_words(model, n)
 
-            top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
-                            idx_tw, 2 + idx] = top_words
-            top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
-                            idx_tw, 0] = n_components
-            top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
-                            idx_tw, 1] = n
+            # top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
+            #                 idx_tw, 2 + idx] = top_words
+            # top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
+            #                 idx_tw, 0] = n_components
+            # top_motifs.iloc[idx_n*len(N_TOP_WORDS) +
+            #                 idx_tw, 1] = n
 
-            X_train_new = X_train[top_words]
-            X_test_new = X_test[top_words]
+            X_train_new = X_train[:, top_words]
+            X_test_new = X_test[:, top_words]
 
             train_test_top_words_sets[idx_tw][idx] = (
                 X_train_new, X_test_new, y_train, y_test)
@@ -207,6 +226,13 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
             run_SVM(total_runs, train_test_sets, C,
                     gamma, n_components, results, row_ind)
             row_ind += 1
+    print('Finish rbf, topic dimension, {}'.format(n_components))
+
+    for idx_c, C in enumerate(C_OPTIONS):
+        run_SVM(total_runs, train_test_sets, C, 1, n_components,
+                results_linear, row_ind_linear, is_linear=True)
+        row_ind_linear += 1
+    print('Finish linear, topic dimension, {}'.format(n_components))
 
     for idx_tw, tw in enumerate(train_test_top_words_sets):
         for idx_c, C in enumerate(C_OPTIONS):
@@ -214,13 +240,21 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
                 run_SVM(total_runs, tw, C, gamma, n_components,
                         results, row_ind, N_TOP_WORDS, idx_tw)
                 row_ind += 1
+    print('Finish rbf, motif dimension, {}'.format(n_components))
 
-# %%
-rs_path = Path('results')
+    for idx_tw, tw in enumerate(train_test_top_words_sets):
+        for idx_c, C in enumerate(C_OPTIONS):
+            run_SVM(total_runs, tw, C, 1, n_components, results_linear,
+                    row_ind_linear, N_TOP_WORDS, idx_tw, is_linear=True)
+            row_ind_linear += 1
+    print('Finish linear, motif dimension, {}'.format(n_components))
+
+rs_path = Path('lda_result')
 rs_path.mkdir(exist_ok=True)
 
-dump(results, rs_path/'FSTM_results_rbf.bin')
-dump(timming, rs_path/'FSTM_timming.bin')
-dump(top_motifs, rs_path/'FSTM_top_motifs.bin')
+results.to_csv(rs_path/'LDA_results_rbf.csv', index=False)
+results_linear.to_csv(rs_path/'LDA_results_linear.csv', index=False)
+timming.to_csv(rs_path/'LDA_timming.csv', index=False)
+# dump(top_motifs, rs_path/'LSA_top_motifs.bin')
 
 # %%
