@@ -6,11 +6,11 @@ from time import time
 import numpy as np
 import pandas as pd
 from joblib import dump
-from sklearn.decomposition import LatentDirichletAllocation as LDA
 from sklearn.model_selection import StratifiedKFold
 from sklearn.svm import SVC
 
 from utils.common import DIR, get_folder
+from utils.fstm import FSTM
 
 
 def update_result(fit_time: np.ndarray, score_time: np.ndarray, n_components: int, total_runs: int, C: int, gamma: int, results: pd.DataFrame, row_ind: int,
@@ -121,7 +121,7 @@ timming = pd.DataFrame(timming, columns=labels_model_timming)
 '''
 Run models
 '''
-lda_p = Path('lda_model')
+lda_p = Path('fstm_model')
 lda_p.mkdir(exist_ok=True)
 row_ind = 0
 row_ind_linear = 0
@@ -140,14 +140,14 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
         X_train = np.require(X_train, requirements='C')
         X_test = np.require(X_test, requirements='C')
 
-        model = LDA(n_components=n_components,
+        model = FSTM(n_components=n_components,
                      random_state=random_state)
 
         start = time()
         model.fit(X_train)
         fit_time[idx] = time() - start
 
-        dump(model, lda_p/"lda_{}_{}".format(n_components, idx))
+        dump(model, lda_p/"fstm_{}_{}".format(n_components, idx))
 
         start = time()
         X_train_new = model.transform(X_train)
@@ -180,12 +180,11 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
         row_ind_linear += 1
     print('Finish linear, topic dimension, {}'.format(n_components))
 
-rs_path = Path('lda_result')
+rs_path = Path('fstm_result')
 rs_path.mkdir(exist_ok=True)
 
-results.to_csv(rs_path/'LDA_results_rbf.csv', index=False)
-results_linear.to_csv(rs_path/'LDA_results_linear.csv', index=False)
-timming.to_csv(rs_path/'LDA_timming.csv', index=False)
-# dump(top_motifs, rs_path/'LSA_top_motifs.bin')
+results.to_csv(rs_path/'FSTM_results_rbf.csv', index=False)
+results_linear.to_csv(rs_path/'FSTM_results_linear.csv', index=False)
+timming.to_csv(rs_path/'FSTM_timming.csv', index=False)
 
 # %%

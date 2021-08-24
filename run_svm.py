@@ -5,13 +5,10 @@ from time import time
 
 import numpy as np
 import pandas as pd
-from joblib import dump
-from sklearn.decomposition import LatentDirichletAllocation as LDA
 from sklearn.model_selection import StratifiedKFold
 from sklearn.svm import SVC
 
 from utils.common import DIR, get_folder
-
 
 def update_result(fit_time: np.ndarray, score_time: np.ndarray, n_components: int, total_runs: int, C: int, gamma: int, results: pd.DataFrame, row_ind: int,
                   N_TOP_WORDS: int = None, idx_tw: int = None):
@@ -84,9 +81,13 @@ Params preparation
 """
 C_OPTIONS = np.logspace(-7, 7, 15, base=2)
 GAMMA_OPTIONS = np.logspace(-11, 3, 15, base=2)
-N_COMPONENTS = [25, 35, 50, 75, 100, 150,
-                200, 300, 400, 500, 750, 1000, 1250, 1500]
-N_TOP_WORDS = [3, 5, 7, 10]
+N_COMPONENTS = [0]
+N_TOP_WORDS = [0]
+
+# C_OPTIONS = np.logspace(-7, 11, 2, base=2)
+# GAMMA_OPTIONS = np.logspace(-12, 6, 2, base=2)
+# N_COMPONENTS = [5]
+# N_TOP_WORDS = [3]
 
 # %%
 '''
@@ -111,23 +112,21 @@ n_rows_timming = len(N_COMPONENTS)
 results = np.zeros(shape=(n_rows_results, len(labels_results)))
 results_linear = np.zeros(
     shape=(int(n_rows_results / len(GAMMA_OPTIONS)), len(labels_results)))
-timming = np.zeros(shape=(n_rows_timming, len(labels_model_timming)))
 
 results = pd.DataFrame(results, columns=labels_results)
 results_linear = pd.DataFrame(results_linear, columns=labels_results)
-timming = pd.DataFrame(timming, columns=labels_model_timming)
 
 # %%
 '''
 Run models
 '''
-lda_p = Path('lda_model')
-lda_p.mkdir(exist_ok=True)
 row_ind = 0
 row_ind_linear = 0
 for idx_n, n_components in enumerate(N_COMPONENTS):
 
     train_test_sets = [0] * total_runs
+    train_test_top_words_sets = [0] * total_runs
+    train_test_top_words_sets = [train_test_top_words_sets] * len(N_TOP_WORDS)
 
     fit_time = np.zeros(total_runs)
     trans_train_time = np.zeros(total_runs)
@@ -140,32 +139,7 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
         X_train = np.require(X_train, requirements='C')
         X_test = np.require(X_test, requirements='C')
 
-        model = LDA(n_components=n_components,
-                     random_state=random_state)
-
-        start = time()
-        model.fit(X_train)
-        fit_time[idx] = time() - start
-
-        dump(model, lda_p/"lda_{}_{}".format(n_components, idx))
-
-        start = time()
-        X_train_new = model.transform(X_train)
-        trans_train_time[idx] = time() - start
-
-        start = time()
-        X_test_new = model.transform(X_test)
-        trans_test_time[idx] = time() - start
-
-        train_test_sets[idx] = (X_train_new, X_test_new, y_train, y_test)
-
-    timming['mean_fit_time'].loc[idx_n] = fit_time.mean()
-    timming['std_fit_time'].loc[idx_n] = fit_time.std()
-    timming['mean_trans_train_time'].loc[idx_n] = trans_train_time.mean()
-    timming['std_trans_train_time'].loc[idx_n] = trans_train_time.std()
-    timming['mean_trans_test_time'].loc[idx_n] = trans_test_time.mean()
-    timming['std_trans_test_time'].loc[idx_n] = trans_test_time.std()
-    timming['n_components'].loc[idx_n] = n_components
+        train_test_sets[idx] = (X_train, X_test, y_train, y_test)
 
     for idx_c, C in enumerate(C_OPTIONS):
         for idx_g, gamma in enumerate(GAMMA_OPTIONS):
@@ -180,12 +154,10 @@ for idx_n, n_components in enumerate(N_COMPONENTS):
         row_ind_linear += 1
     print('Finish linear, topic dimension, {}'.format(n_components))
 
-rs_path = Path('lda_result')
+rs_path = Path('svm_result')
 rs_path.mkdir(exist_ok=True)
 
-results.to_csv(rs_path/'LDA_results_rbf.csv', index=False)
-results_linear.to_csv(rs_path/'LDA_results_linear.csv', index=False)
-timming.to_csv(rs_path/'LDA_timming.csv', index=False)
-# dump(top_motifs, rs_path/'LSA_top_motifs.bin')
+results.to_csv(rs_path/'svm_results_rbf.csv', index=False)
+results_linear.to_csv(rs_path/'svm_results_linear.csv', index=False)
 
 # %%
